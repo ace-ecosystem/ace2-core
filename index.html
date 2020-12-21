@@ -40,7 +40,7 @@
     
     
       
-        <title>Analysis Correlation Engine 2.0 - Core System</title>
+        <title>ACE2 - Core System</title>
       
     
     
@@ -87,7 +87,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#analysis-correlation-engine-20-core-system" tabindex="0" class="md-skip">
+      <a href="#ace2-core-system" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -96,7 +96,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="." title="Analysis Correlation Engine 2.0 - Core System" aria-label="Analysis Correlation Engine 2.0 - Core System" class="md-header-nav__button md-logo">
+        <a href="." title="ACE2 - Core System" aria-label="ACE2 - Core System" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -108,7 +108,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            Analysis Correlation Engine 2.0 - Core System
+            ACE2 - Core System
           
         </div>
       </div>
@@ -160,7 +160,7 @@
   <li class="md-tabs__item">
     
       <a href="." class="md-tabs__link md-tabs__link--active">
-        Analysis Correlation Engine 2.0 - Core System
+        ACE2 - Core System
       </a>
     
   </li>
@@ -205,12 +205,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="." title="Analysis Correlation Engine 2.0 - Core System" class="md-nav__button md-logo">
+    <a href="." title="ACE2 - Core System" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    Analysis Correlation Engine 2.0 - Core System
+    ACE2 - Core System
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -229,8 +229,8 @@
       
     
     
-    <a href="." title="Analysis Correlation Engine 2.0 - Core System" class="md-nav__link md-nav__link--active">
-      Analysis Correlation Engine 2.0 - Core System
+    <a href="." title="ACE2 - Core System" class="md-nav__link md-nav__link--active">
+      ACE2 - Core System
     </a>
     
   </li>
@@ -552,8 +552,26 @@
               
                 
                 
-                <h1 id="analysis-correlation-engine-20-core-system">Analysis Correlation Engine 2.0 - Core System<a class="headerlink" href="#analysis-correlation-engine-20-core-system" title="Permanent link">&para;</a></h1>
-<p>Analyze all the things.</p>
+                <h1 id="ace2-core-system">ACE2 - Core System<a class="headerlink" href="#ace2-core-system" title="Permanent link">&para;</a></h1>
+<p>Work in progress as I port over to this new 2.0 branch.</p>
+<pre class="codehilite"><code class="language-python"># this is what I have in mind for this
+
+from ace.analysis import RootAnalysis
+from ace.modules.threaded import initialize_modules
+from ace.system.threaded import initialize_system
+
+system initialize_system()
+modules = initialize_modules()
+modules.register()
+modules.start()
+
+root = RootAnalysis(description=&quot;Example&quot;)
+observable = root.add_observable('ipv4', '1.2.3.4')
+root.submit()
+
+root.wait()
+print(root)
+</code></pre>
                 
                   
                 
