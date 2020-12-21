@@ -565,7 +565,7 @@
                 
                 <h1 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">&para;</a></h1>
 <p>The results of analysis work are returned as <a href="analysis_request_tracking">analysis requests</a>. If the <a href="../analysis_module_type/">analysis module type</a> supports caching then these analysis results are tracked by <code>ace.system.caching.CacheInterface</code>.</p>
-<p>The <a href="../analysis_requests/">analysis result</a> contains a copy of the <a href="">root analysis</a> and the <a href="">observable</a> as they existing <em>before</em> the analysis, as well as the modified version as they existed <em>after</em> the analysis.</p>
+<p>The <a href="../analysis_requests/">analysis result</a> contains a copy of the <a href="../../design/root_analysis/">root analysis</a> and the <a href="../../design/observable/">observable</a> as they existing <em>before</em> the analysis, as well as the modified version as they existed <em>after</em> the analysis.</p>
 <p>When an analysis is requested for an observable that has a cached result, the <em>difference</em> between the before and after copies of the root and observables are applied.</p>
 <p>Caching uses a <strong>cache key</strong> to index the cached analysis results. The key is generated from a combination of </p>
 <ul>

@@ -609,7 +609,7 @@
                 
                 
                 <h1 id="analysis-module-tracking">Analysis Module Tracking<a class="headerlink" href="#analysis-module-tracking" title="Permanent link">&para;</a></h1>
-<p>Analysis modules are tracked as <a href="">analysis module types</a> through the interface <code>ace.system.analysis_module_tracking.AnalysisModuleTrackingInterface</code>. </p>
+<p>Analysis modules are tracked as <a href="../analysis_module_type/">analysis module types</a> through the interface <code>ace.system.analysis_module_tracking.AnalysisModuleTrackingInterface</code>. </p>
 <p>Analysis modules start by registering with the system. Multiple instances of the same analysis module can register as long as the version of the module remains the same. The keeps track of what analysis modules have been registered and have not expired or been invalidated.</p>
 <p>Each analysis module type is assigned a work queue. Any work created that the analysis module supports is assigned to the work queue. Any instance of the analysis module can pick up the work from the queue.</p>
 <p>When an analysis module requests work, it also submits its current version data so that it can be checked against the registered analysis module.</p>

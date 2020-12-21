@@ -319,52 +319,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Analysis Request Tracking
-      </label>
-    
     <a href="./" title="Analysis Request Tracking" class="md-nav__link md-nav__link--active">
       Analysis Request Tracking
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#root-analysis-requests" class="md-nav__link">
-    Root Analysis Requests
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#observable-analysis-request" class="md-nav__link">
-    Observable Analysis Request
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#observable-analysis-result" class="md-nav__link">
-    Observable Analysis Result
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -595,36 +552,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#root-analysis-requests" class="md-nav__link">
-    Root Analysis Requests
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#observable-analysis-request" class="md-nav__link">
-    Observable Analysis Request
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#observable-analysis-result" class="md-nav__link">
-    Observable Analysis Result
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -637,17 +564,7 @@
                 
                 
                 <h1 id="analysis-request-tracking">Analysis Request Tracking<a class="headerlink" href="#analysis-request-tracking" title="Permanent link">&para;</a></h1>
-<p>All requests to perform analysis are made through <a href="">analysis request</a> objects and tracked in the <code>ace.system.analysis_request.AnalysisRequestTrackingInterface</code></p>
-<p>There are three types of analysis requests.</p>
-<h2 id="root-analysis-requests">Root Analysis Requests<a class="headerlink" href="#root-analysis-requests" title="Permanent link">&para;</a></h2>
-<p>A root analysis request is one that contains only a <a href="">root analysis</a> object. If the root analysis object does not exist, it is added to the system and <a href="../analysis_tracking/">tracked</a>.</p>
-<p>If the root analysis already exists, it is replaced by a copy of a new one that merges the new analysis into the old one.</p>
-<h2 id="observable-analysis-request">Observable Analysis Request<a class="headerlink" href="#observable-analysis-request" title="Permanent link">&para;</a></h2>
-<p>An observable analysis request is one that contains both a <a href="">root analysis</a> object and an <a href="../../design/observable/">observable</a> object, as well as a copy of the [analysis module type] that is supposed to analyze it.</p>
-<p>These requests are added to the work queues of their respective analysis module types.</p>
-<p>References to observable analysis requests are also tracked inside the observables themselves.</p>
-<h2 id="observable-analysis-result">Observable Analysis Result<a class="headerlink" href="#observable-analysis-result" title="Permanent link">&para;</a></h2>
-<p>An analysis module records the results of the analysis into an <a href="">analysis result</a> inside of the original <a href="">analysis request</a>. This request is then resubmitted back to the system for processing.</p>
+<p>All requests to perform analysis are made through an <a href="../analysis_requests/">analysis request</a> objects and tracked in the <code>ace.system.analysis_request.AnalysisRequestTrackingInterface</code></p>
                 
                   
                 
