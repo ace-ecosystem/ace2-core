@@ -204,19 +204,13 @@
         
   
   
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../development/system/" class="md-tabs__link">
+        <a href="../development/caching/" class="md-tabs__link">
           Development
         </a>
       
     </li>
-  
-
   
 
       
@@ -610,6 +604,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../design/example_flow/" title="Example Flow" class="md-nav__link">
+      Example Flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../design/observable/" title="Observables" class="md-nav__link">
       Observables
     </a>
@@ -669,15 +675,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../development/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
     
-    <label class="md-nav__link" for="nav-4-1">
+    <label class="md-nav__link" for="nav-4-2">
       System
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-1">
+      <label class="md-nav__title" for="nav-4-2">
         System
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -848,9 +866,9 @@
                 
                 
                 <h1 id="core-system">Core System<a class="headerlink" href="#core-system" title="Permanent link">&para;</a></h1>
-<p>ACE is composed of subsystem component interfaces. Each interface allows implementation of a particular part of the system. An implementation of all of these interfaces would create a complete ACE core system.</p>
+<p>ACE is composed of subsystem component interfaces. Each interface allows implementation of a particular part of the system. An implementation of all of these interfaces would create a complete ACE <strong>core system</strong>.</p>
 <h2 id="system-interfaces">System Interfaces<a class="headerlink" href="#system-interfaces" title="Permanent link">&para;</a></h2>
-<p>The following interfaces make up the entirety of the ACE system.</p>
+<p>The following interfaces make up the entirety of the ACE system:</p>
 <ul>
 <li><a href="alerting/">Alerting</a></li>
 <li><a href="analysis_tracking/">Analysis Tracking</a></li>
@@ -866,7 +884,7 @@
 </ul>
 <h2 id="process-workflow">Process Workflow<a class="headerlink" href="#process-workflow" title="Permanent link">&para;</a></h2>
 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
-<p>The following is a basic high level overview of the fundamental logic of the analysis system.</p>
+<p>The following is a basic high level overview of the fundamental logic of the analysis system:</p>
 <ol>
 <li>Register one or more analysis modules.</li>
 <li>Submit a new analysis request.</li>
@@ -877,18 +895,18 @@
 <li>Process continues until work queues are emptied.</li>
 </ol>
 <h3 id="analysis-module-registration">Analysis Module Registration<a class="headerlink" href="#analysis-module-registration" title="Permanent link">&para;</a></h3>
-<p>The process begins by registering one or more <a href="../design/analysis_module/">analysis modules</a>. A module registration informs the system what type of data the module is interested in analyzing. A registered analysis module is registered under a <strong>type name</strong> and each analysis module <strong>type</strong> is assigned its own <a href="work_queue/">work queue</a> that receives analysis requests specific to that module <strong>type</strong>.</p>
+<p>The process begins by registering one or more <a href="../design/analysis_module/">analysis modules</a>. A module registration informs the system what type of data the module is interested in analyzing. A registered analysis module is registered under a <em>type name</em> and each analysis module <em>type</em> is assigned its own <a href="work_queue/">work queue</a> that receives analysis requests specific to that module <em>type</em>.</p>
 <p>This part of the process is external to the core system.</p>
 <h3 id="analysis-request-submission">Analysis Request Submission<a class="headerlink" href="#analysis-request-submission" title="Permanent link">&para;</a></h3>
 <p>Work is initiated by submitting a <a href="analysis_requests/#root-analysis-request">root analysis request</a> to the system. An initial request supplies the <a href="../design/root_analysis/">root analysis</a> object along with any <a href="../design/observable/">observables</a> that should be analyzed by the system.</p>
 <h3 id="analysis-request-processing">Analysis Request Processing<a class="headerlink" href="#analysis-request-processing" title="Permanent link">&para;</a></h3>
-<p>The ACE core system processes inbound analysis requests by enumerating all <a href="../design/observable/">observables</a> in the <a href="../design/root_analysis/">root analysis</a> object and cross referencing that with all registered <a href="../design/analysis_module/">analysis modules</a>.</p>
+<p>The ACE core system processes inbound analysis requests by enumerating all <a href="../design/observable/">observables</a> in the <a href="../design/root_analysis/">root analysis</a> object and cross-referencing that with all registered <a href="../design/analysis_module/">analysis modules</a>.</p>
 <p>An observable is assigned to a module for analysis by creating a new <a href="analysis_requests/#observable-analysis-request">observable analysis request</a> and appending that request to the <a href="work_queue/">work queue</a> assigned to that analysis module type.</p>
 <p>Analysis modules then receive the request by acquiring the next work item from their assigned <a href="work_queue/">work queues</a>.</p>
 <h3 id="analysis-module-execution">Analysis Module Execution<a class="headerlink" href="#analysis-module-execution" title="Permanent link">&para;</a></h3>
-<p>Each <a href="../design/analysis_module/">analysis module</a> receives <a href="analysis_requests/#observable-analysis-request">observable analysis requests</a> through the <a href="work_queue/">work queue</a> assign the the analysis module <strong>type</strong>. The execution of the analysis module logic is external to the core engine.</p>
+<p>Each <a href="../design/analysis_module/">analysis module</a> receives <a href="analysis_requests/#observable-analysis-request">observable analysis requests</a> through the <a href="work_queue/">work queue</a> which is assigned to the analysis module <em>type</em>. The execution of the analysis module logic is external to the core engine.</p>
 <h3 id="analysis-result-processing">Analysis Result Processing<a class="headerlink" href="#analysis-result-processing" title="Permanent link">&para;</a></h3>
-<p>The results of the analysis are posted back to the ace core system as <a href="analysis_requests/#observable-analysis-result">observable analysis results</a>. These results contain the original request as well as the result of the analysis.</p>
+<p>The results of the analysis are posted back to the ACE core system as <a href="analysis_requests/#observable-analysis-result">observable analysis results</a>. These results contain the original request as well as the result of the analysis.</p>
 <p>The ACE core system applies any changes generated by the analysis back to the <a href="../design/root_analysis/">root analysis</a> object. Any new <a href="../design/observable/">observables</a> found in the results generate new <a href="analysis_requests/">analysis requests</a> if they have not yet been analyzed.</p>
 <p>This recursion continues until all observables have been analyzed by all registered analysis modules.</p>
 <h3 id="alerting">Alerting<a class="headerlink" href="#alerting" title="Permanent link">&para;</a></h3>

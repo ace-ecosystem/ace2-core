@@ -204,19 +204,13 @@
         
   
   
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../../development/system/" class="md-tabs__link">
+        <a href="../../development/caching/" class="md-tabs__link">
           Development
         </a>
       
     </li>
-  
-
   
 
       
@@ -562,6 +556,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../design/example_flow/" title="Example Flow" class="md-nav__link">
+      Example Flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../design/observable/" title="Observables" class="md-nav__link">
       Observables
     </a>
@@ -621,15 +627,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../development/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
     
-    <label class="md-nav__link" for="nav-4-1">
+    <label class="md-nav__link" for="nav-4-2">
       System
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-1">
+      <label class="md-nav__title" for="nav-4-2">
         System
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -752,13 +770,13 @@
                 
                 
                 <h1 id="locking">Locking<a class="headerlink" href="#locking" title="Permanent link">&para;</a></h1>
-<p>ACE is a distributed system that requires synchronization between processes. This is accomplished by using the <code>ace.system.locking.LockingInterface</code></p>
+<p>ACE is a distributed system that requires synchronization between processes. This is accomplished by using the <code>ace.system.locking.LockingInterface</code>.</p>
 <h2 id="locks">Locks<a class="headerlink" href="#locks" title="Permanent link">&para;</a></h2>
-<p>A lock is defined as an arbitrary string value. Typically the value of a lock represents the name of something being locked. Once a lock is held, no other attempt to acquire the lock will succeed until it is released or the lock acquisition expires.</p>
+<p>A <strong>lock</strong> is defined as an arbitrary string value. Typically, the value of a lock represents the name of something being locked. Once a lock is held, no other attempt to acquire the lock will succeed until it is released or the lock acquisition expires.</p>
 <h2 id="lock-ownership">Lock Ownership<a class="headerlink" href="#lock-ownership" title="Permanent link">&para;</a></h2>
-<p>Every lock is made by and assigned to a <strong>lock owner</strong>. An owner is defined as an arbitrary string value. Typically an owner value is made up some combination of properties such as host name, process and thread ids, such that they uniquely identify some thread of execution.</p>
+<p>Every lock is made by and assigned to a <strong>lock owner</strong>. An owner is defined as an arbitrary string value. Typically, an owner value is made up of some combination of properties such as host name, process, and thread ids. This allows for identifying unique threads of execution.</p>
 <h2 id="deadlocks">Deadlocks<a class="headerlink" href="#deadlocks" title="Permanent link">&para;</a></h2>
-<p>A lock owner can acquire multiple locks. If a lock owner attempts to acquire a lock that is already acquired by another owner, and that owner is waiting for the other to release a different lock, then a deadlock occurs.</p>
+<p>A lock owner can acquire multiple locks. If a lock owner attempts to acquire a lock that is already acquired by another owner, and that owner is waiting for the other to release a different lock, then a <strong>deadlock</strong> occurs.</p>
 <p>When a deadlock occurs, the request must be made again later.</p>
                 
                   

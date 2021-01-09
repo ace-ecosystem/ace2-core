@@ -204,19 +204,13 @@
         
   
   
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../../development/system/" class="md-tabs__link">
+        <a href="../../development/caching/" class="md-tabs__link">
           Development
         </a>
       
     </li>
-  
-
   
 
       
@@ -519,6 +513,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../design/example_flow/" title="Example Flow" class="md-nav__link">
+      Example Flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../design/observable/" title="Observables" class="md-nav__link">
       Observables
     </a>
@@ -578,15 +584,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../development/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
     
-    <label class="md-nav__link" for="nav-4-1">
+    <label class="md-nav__link" for="nav-4-2">
       System
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-1">
+      <label class="md-nav__title" for="nav-4-2">
         System
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -679,17 +697,17 @@
                 
                 
                 <h1 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">&para;</a></h1>
-<p>The results of analysis work are returned as <a href="analysis_request_tracking">analysis requests</a>. If the <a href="../analysis_module_type/">analysis module type</a> supports caching then these analysis results are tracked by <code>ace.system.caching.CacheInterface</code>.</p>
-<p>The <a href="../analysis_requests/">analysis result</a> contains a copy of the <a href="../../design/root_analysis/">root analysis</a> and the <a href="../../design/observable/">observable</a> as they existing <em>before</em> the analysis, as well as the modified version as they existed <em>after</em> the analysis.</p>
+<p>The results of analysis work are returned as <a href="analysis_request_tracking">analysis requests</a>. If the <a href="../analysis_module_type/">analysis module type</a> supports <strong>caching</strong> then these analysis results are tracked by <code>ace.system.caching.CacheInterface</code>.</p>
+<p>The <a href="../analysis_requests/">analysis result</a> contains a copy of the <a href="../../design/root_analysis/">root analysis</a> and the <a href="../../design/observable/">observable</a> as they existed <em>before</em> the analysis, as well as the modified version as they existed <em>after</em> the analysis.</p>
 <p>When an analysis is requested for an observable that has a cached result, the <em>difference</em> between the before and after copies of the root and observables are applied.</p>
-<p>Caching uses a <strong>cache key</strong> to index the cached analysis results. The key is generated from a combination of </p>
+<p>Caching uses a <strong>cache key</strong> to index the cached analysis results. The key is generated from a combination of:</p>
 <ul>
-<li>the type of the observable.</li>
-<li>the value of the observable.</li>
-<li>the time of the observable (if available.)</li>
-<li>the name of the analysis module type.</li>
-<li>the version of the analysis module type.</li>
-<li>optionally, any additional cache keys specified by the analysis module type.</li>
+<li>the type of the observable</li>
+<li>the value of the observable</li>
+<li>the time of the observable (if available)</li>
+<li>the name of the analysis module type</li>
+<li>the version of the analysis module type</li>
+<li>optionally, any additional cache keys specified by the analysis module type</li>
 </ul>
 <p>If the cache key changes then the lookup changes.</p>
 <p>Cache results can be set to expire after a period of time as specified by the analysis module type.</p>

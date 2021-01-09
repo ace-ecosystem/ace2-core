@@ -204,19 +204,13 @@
         
   
   
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../" class="md-tabs__link md-tabs__link--active">
+        <a href="../../caching/" class="md-tabs__link md-tabs__link--active">
           Development
         </a>
       
     </li>
-  
-
   
 
       
@@ -508,6 +502,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../design/example_flow/" title="Example Flow" class="md-nav__link">
+      Example Flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../design/observable/" title="Observables" class="md-nav__link">
       Observables
     </a>
@@ -568,18 +574,30 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../../caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
     
-    <label class="md-nav__link" for="nav-4-1">
+    <label class="md-nav__link" for="nav-4-2">
       System
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-1">
+      <label class="md-nav__title" for="nav-4-2">
         System
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -780,27 +798,27 @@
                 
                 
                 <h1 id="concurrency">Concurrency<a class="headerlink" href="#concurrency" title="Permanent link">&para;</a></h1>
-<p>The core system is designed in such a way that each subsystem can execute independently from the other. A <a href="">distributed locking system</a> is available to use to serialize multiple concurrent modification requests to the same object.</p>
+<p>The core system is designed in such a way that each subsystem can execute independently from the other. A <a href="">distributed locking system</a> is available to serialize multiple concurrent modification requests to the same object.</p>
 <h2 id="concurrent-modification-restrictions">Concurrent Modification Restrictions<a class="headerlink" href="#concurrent-modification-restrictions" title="Permanent link">&para;</a></h2>
-<p>The core system must resolve concurrent requests to satisfy analysis results. Analysis results can contain <strong>side effects</strong>. This makes result resolution challenging.</p>
+<p>The core system must resolve concurrent requests to satisfy analysis results. Analysis results can contain <em>side effects</em>. This makes result resolution challenging.</p>
 <p>Consider the following scenario: root analysis object Z<sub>1</sub> contains observable O<sub>1</sub>. Two different analysis modules A<sub>1</sub> and A<sub>2</sub> are registered to analyze O<sub>1</sub>. Both analysis modules operate independently.</p>
-<p>A<sub>2</sub> finishes first adding analysis result R<sub>2</sub> to O<sub>1</sub> and adding a tag T<sub>1</sub> to O<sub>1</sub>. Adding the tag is a <strong>side effect</strong>.</p>
-<p>A<sub>1</sub> finishes second and adds analysis result R<sub>1</sub> to O<sub>1</sub> but does <strong>not</strong> add a tag.</p>
+<p>A<sub>2</sub> finishes first adding an analysis result R<sub>2</sub> to O<sub>1</sub> and adding a tag T<sub>1</sub> to O<sub>1</sub>. Adding the tag is a <em>side effect</em>.</p>
+<p>A<sub>1</sub> finishes second and adds analysis result R<sub>1</sub> to O<sub>1</sub> but does <em>not</em> add a tag.</p>
 <p>Due to the side effect, the core system cannot simply replace O<sub>1</sub> when it resolves R<sub>1</sub> because it would overwrite it without the tag that A<sub>2</sub> added to it.</p>
-<p>The core system instead <strong>merges</strong> the results together.</p>
+<p>The core system instead <em>merges</em> the results together.</p>
 <h2 id="merging">Merging<a class="headerlink" href="#merging" title="Permanent link">&para;</a></h2>
-<p>Merging allows one object to be merged into another. There are two types of merging in the core system: direct and differential. Python classes that support merging will have <code>apply_merge</code> and <code>apply_diff_merge</code> functions.</p>
+<p><strong>Merging</strong> allows one object to be merged into another. There are two types of merging in the core system: <em>direct</em> and <em>differential</em>. Python classes that support merging will have <code>apply_merge</code> and <code>apply_diff_merge</code> functions.</p>
 <h3 id="direct-merge">Direct Merge<a class="headerlink" href="#direct-merge" title="Permanent link">&para;</a></h3>
 <p>A <strong>direct merge</strong> takes the form of <code>target.apply_merge(source)</code> and copies anything in <code>source</code> that is not in <code>target</code>.</p>
 <p>In our previous example, a direct merge of R<sub>1</sub> into O<sub>1</sub> would <em>preserve</em> T<sub>1</sub> because it would only add the analysis result R<sub>1</sub> and do nothing else.</p>
 <p>Likewise, if R<sub>1</sub> finished first, then a direct merge of R<sub>2</sub> O<sub>1</sub> would <em>add</em> T<sub>1</sub> into O<sub>1</sub> because T<sub>1</sub> does not exist in the target.</p>
 <p>There is another scenario that requires additional logic to handle. Consider the following: root analysis object Z<sub>1</sub> contains observable O<sub>1</sub>. Two different analysis modules A<sub>1</sub> and A<sub>2</sub> are registered to analyze O<sub>1</sub>. Both analysis modules operate independently.</p>
-<p>A<sub>1</sub> finishes first and adds analysis result R<sub>1</sub> to O<sub>1</sub>, but also changes the <code>analysis_mode</code> property of Z<sub>1</sub> from <code>analysis</code> to <code>correlation</code>. This change to Z<sub>1</sub> is a <strong>side effect</strong>.</p>
+<p>A<sub>1</sub> finishes first and adds analysis result R<sub>1</sub> to O<sub>1</sub>, but also changes the <code>analysis_mode</code> property of Z<sub>1</sub> from <code>analysis</code> to <code>correlation</code>. This change to Z<sub>1</sub> is a <em>side effect</em>.</p>
 <p>A<sub>2</sub> finishes second and adds analysis result R<sub>2</sub> to O<sub>1</sub>. However, it does not change the <code>analysis_mode</code> property of Z<sub>1</sub>.</p>
-<p>At this point the core system has no idea if A<sub>2</sub> left the property alone, or if it <em>changed it back</em>.</p>
+<p>At this point, the core system has no idea if A<sub>2</sub> left the property alone or if it <em>changed it back</em>.</p>
 <h3 id="differential-merge">Differential Merge<a class="headerlink" href="#differential-merge" title="Permanent link">&para;</a></h3>
 <p>A <strong>differential merge</strong> applies the changes (delta) between two objects to a target object. It takes the form of <code>target.apply_diff_merge(before, after)</code> where <code>target</code> is the object to receive the changes, <code>before</code> is the state of the object before the changes were made, and <code>after</code> is the state of the object after the changes were made.</p>
-<p>If we apply this to the previous scenario the differential merge would see that the <code>analysis_mode</code> property was the same in both the <code>before</code> and <code>after</code> objects, so R<sub>2</sub> would <em>not</em> overwrite the property with the wrong value.</p>
+<p>If we apply this to the previous scenario, the differential merge would see that the <code>analysis_mode</code> property was the same in both the <code>before</code> and <code>after</code> objects, so R<sub>2</sub> would <em>not</em> overwrite the property with the wrong value.</p>
                 
                   
                 

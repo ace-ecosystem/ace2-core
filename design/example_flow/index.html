@@ -1,0 +1,922 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Analysis Correlation Engine 2.0 - Core System">
+      
+      
+      
+        <meta name="author" content="John Davison">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Example Flow - ACE2 - Core System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#example-flow" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="ACE2 - Core System" aria-label="ACE2 - Core System" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              ACE2 - Core System
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Example Flow
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        ACE2 - Core System
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../core/" class="md-tabs__link">
+          Core
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../alerts/" class="md-tabs__link md-tabs__link--active">
+          Design
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../development/caching/" class="md-tabs__link">
+          Development
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="ACE2 - Core System" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    ACE2 - Core System
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ACE2 - Core System" class="md-nav__link">
+      ACE2 - Core System
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Core
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Core
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../core/" title="Core System" class="md-nav__link">
+      Core System
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../core/alerting/" title="Alerting" class="md-nav__link">
+      Alerting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../core/analysis_module_tracking/" title="Analysis Module Tracking" class="md-nav__link">
+      Analysis Module Tracking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../core/analysis_module_type/" title="Analysis Module Type" class="md-nav__link">
+      Analysis Module Type
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../core/analysis_request_tracking/" title="Analysis Request Tracking" class="md-nav__link">
+      Analysis Request Tracking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../core/analysis_requests/" title="Analysis Requests" class="md-nav__link">
+      Analysis Requests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../core/analysis_tracking/" title="Analysis Tracking" class="md-nav__link">
+      Analysis Tracking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../core/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../core/locking/" title="Locking" class="md-nav__link">
+      Locking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../core/storage/" title="Storage" class="md-nav__link">
+      Storage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../core/work_queue/" title="Work Queues" class="md-nav__link">
+      Work Queues
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Design
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Design
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../alerts/" title="Alerts" class="md-nav__link">
+      Alerts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../analysis/" title="Analysis" class="md-nav__link">
+      Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../analysis_modes/" title="Analysis Modes" class="md-nav__link">
+      Analysis Modes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../analysis_module/" title="Analysis Module" class="md-nav__link">
+      Analysis Module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../detection_points/" title="Detection Points" class="md-nav__link">
+      Detection Points
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../directives/" title="Directives" class="md-nav__link">
+      Directives
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Example Flow
+      </label>
+    
+    <a href="./" title="Example Flow" class="md-nav__link md-nav__link--active">
+      Example Flow
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#register-analysis-modules" class="md-nav__link">
+    Register Analysis Modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-module-queues-and-mapping" class="md-nav__link">
+    Analysis Module Queues and Mapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-submission" class="md-nav__link">
+    Analysis Submission
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-analysis-module-results" class="md-nav__link">
+    Handling Analysis Module Results
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-alert-is-born" class="md-nav__link">
+    An Alert Is Born
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../observable/" title="Observables" class="md-nav__link">
+      Observables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../root_analysis/" title="Root Analysis" class="md-nav__link">
+      Root Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tags/" title="Tags" class="md-nav__link">
+      Tags
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Development
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Development
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      System
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        System
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/system/" title="Core System" class="md-nav__link">
+      Core System
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/system/concurrency/" title="Concurrency" class="md-nav__link">
+      Concurrency
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/system/serialization/" title="Serialization" class="md-nav__link">
+      Serialization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/system/subsystems/" title="Core Subsystems" class="md-nav__link">
+      Core Subsystems
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#register-analysis-modules" class="md-nav__link">
+    Register Analysis Modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-module-queues-and-mapping" class="md-nav__link">
+    Analysis Module Queues and Mapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-submission" class="md-nav__link">
+    Analysis Submission
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-analysis-module-results" class="md-nav__link">
+    Handling Analysis Module Results
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-alert-is-born" class="md-nav__link">
+    An Alert Is Born
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="example-flow">Example Flow<a class="headerlink" href="#example-flow" title="Permanent link">&para;</a></h1>
+<p>Let's follow a simple example to show how an <a href="../alerts/">alert</a> gets created by ACE.</p>
+<p>In this example, we register analysis modules specifically to look for malicious word documents.
+Then we assume a sensor submits a word document for analysis.</p>
+<h2 id="register-analysis-modules">Register Analysis Modules<a class="headerlink" href="#register-analysis-modules" title="Permanent link">&para;</a></h2>
+<p><a href="../analysis_module/">Analysis modules</a> process <a href="../observable/">observables</a> to see if an
+<a href="../alerts/">alert</a> should be created.</p>
+<p>In this example we register two analysis modules:</p>
+<ul>
+<li><strong>File Type</strong> analysis module<ul>
+<li>This module accepts "<em>file</em>" observable types and outputs the type of file. For example: PDF, Word Document,
+  Email, etc.</li>
+<li>This module adds tags like <code>word_doc</code>, <code>pdf</code>, <code>email</code>, etc. depending on the file type analysis result.</li>
+</ul>
+</li>
+<li><strong>Word Document</strong> analysis module<ul>
+<li>This module accepts "<em>file</em>" observables and outputs if the word document is malicious. Additionally, it depends on the File Type module to determine if a file is malicious or not.</li>
+<li>This module may also add more observables like URLs from within the document, screenshots of the document content, etc.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Analysis Module Registration" src="../../material/assets/images/ace2-core-example-flow-register.png" /></p>
+<h2 id="analysis-module-queues-and-mapping">Analysis Module Queues and Mapping<a class="headerlink" href="#analysis-module-queues-and-mapping" title="Permanent link">&para;</a></h2>
+<p>ACE receives the registration requests from the analysis modules and creates a queue dedicated to each.</p>
+<p><img alt="Analysis Module Queues and Observable Mapping" src="../../material/assets/images/ace2-core-example-flow-register-2.png" /></p>
+<h2 id="analysis-submission">Analysis Submission<a class="headerlink" href="#analysis-submission" title="Permanent link">&para;</a></h2>
+<p>A sensor submits a <a href="../root_analysis/">root analysis</a> which contains an observable with type "<em>file</em>."</p>
+<p>ACE keeps track of the root analysis and adds analysis module results throughout the lifetime of the root analysis.</p>
+<p>ACE then creates <em>observable analysis requests</em> for each observable within the root analysis and places them in the 
+appropriate queue(s) for analysis modules that accept "<em>file</em>" observable types. In this case, we only have one observable.</p>
+<p><img alt="Root Analysis And Observable Submission" src="../../material/assets/images/ace2-core-example-flow-sensor-input.png" /></p>
+<h2 id="handling-analysis-module-results">Handling Analysis Module Results<a class="headerlink" href="#handling-analysis-module-results" title="Permanent link">&para;</a></h2>
+<p>The File Type analysis module receives the analysis request through its queue and then posts analysis results back to 
+ACE. These results may include things like <a href="../tags/">tags</a>, <a href="../directives/">directives</a>, 
+<a href="../detection_points/">detection points</a>, more observables, etc.</p>
+<p>ACE adds the analysis result to the root analysis, and then places any additional observables discovered by the analysis
+module into the appropriate queue(s) for further analysis.</p>
+<p><img alt="Analysis Results" src="../../material/assets/images/ace2-core-example-flow-analysis-results.png" /></p>
+<h2 id="an-alert-is-born">An Alert Is Born<a class="headerlink" href="#an-alert-is-born" title="Permanent link">&para;</a></h2>
+<p>The Word Document analysis module found a Visual Basic macro that contained a function known to make network calls. This
+is suspicious and worth being presented to a security analyst.</p>
+<p>The Word Document analysis module adds a detection point to note that it has detected something that should be
+manually reviewed by an analyst.</p>
+<p>Once the analysis is submitted back to ACE, ACE adds the analysis to the root analysis object. ACE sees there is a 
+detection point and will submit the root analysis as an alert.</p>
+<p><img alt="An Alert Is Born" src="../../material/assets/images/ace2-core-example-flow-create-alert.png" /></p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../directives/" title="Directives" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Directives
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../observable/" title="Observables" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Observables
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.df00da5d.js"></script>
+      
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

@@ -204,19 +204,13 @@
         
   
   
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../../development/system/" class="md-tabs__link">
+        <a href="../../development/caching/" class="md-tabs__link">
           Development
         </a>
       
     </li>
-  
-
   
 
       
@@ -508,6 +502,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../example_flow/" title="Example Flow" class="md-nav__link">
+      Example Flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -663,15 +669,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../development/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
     
-    <label class="md-nav__link" for="nav-4-1">
+    <label class="md-nav__link" for="nav-4-2">
       System
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-1">
+      <label class="md-nav__title" for="nav-4-2">
         System
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -836,30 +854,30 @@
                 
                 
                 <h1 id="observables">Observables<a class="headerlink" href="#observables" title="Permanent link">&para;</a></h1>
-<p>An <strong>observable</strong> represents an observation made during the course of analysis. It always has a <strong>type</strong> and a <strong>value</strong>, and optionally has a time at which the observation was made. If the observable is missing the time then the time is assumed to be the time of the entire event that is being analyzed.</p>
-<p>Observables are <strong>always</strong> children of <a href="../analysis/">analysis</a> based objects.</p>
+<p>An <strong>observable</strong> represents an observation made during the course of analysis. It always has a <em>type</em> and a <em>value</em>, and, optionally, has a time at which the observation was made. If the observable is missing the time, then the time is assumed to be the time of the entire event that is being analyzed.</p>
+<p>Observables are <em>always</em> children of <a href="../analysis/">analysis</a>-based objects.</p>
 <p>Observables are analyzed by <a href="../analysis_module/">analysis modules</a> which generate <a href="../analysis/">analysis</a> as output. The newly created analysis can also contain more observables.</p>
-<p>Observables are unique according to their type, value and time. If an observable with the same type, value and time as another existing observable is added, it references the existing observable instead of creating a new one.</p>
+<p>Observables are unique according to their type, value, and time. If an observable with the same type, value, and time as another existing observable is added, it references the existing observable instead of creating a new one.</p>
 <p>Note that observables are unique by time. You can optionally <a href="">group them together by time</a> if you need to.</p>
 <h2 id="tagging">Tagging<a class="headerlink" href="#tagging" title="Permanent link">&para;</a></h2>
-<p>An observable can have zero or more <a href="../tags/">tags</a>. Tagging is used to tie some concept, idea or grouping property to the observables.</p>
+<p>An observable can have zero or more <a href="../tags/">tags</a>. <strong>Tagging</strong> is used to tie some concept, idea or grouping property to the observables.</p>
 <h2 id="directives">Directives<a class="headerlink" href="#directives" title="Permanent link">&para;</a></h2>
-<p>An observable can have zero or more <a href="../directives/">directives</a>. Directives are used to give <a href="../analysis_module/">analysis modules</a> some additional instructions on how to handle the observable.</p>
+<p>An observable can have zero or more <strong><a href="../directives/">directives</a></strong>. Directives are used to give <a href="../analysis_module/">analysis modules</a> some additional instructions on how to handle the observable.</p>
 <h2 id="redirection">Redirection<a class="headerlink" href="#redirection" title="Permanent link">&para;</a></h2>
-<p>An observable can include a <strong>redirection</strong> which points to another observable. Redirections are often used when extracting artifacts from files. They give ACE the ability to say "This file actually came from this other file."</p>
+<p>An observable can include a <strong>redirection</strong>, which points to another observable. Redirections are often used when extracting artifacts from files. They give ACE the ability to say "This file actually came from this other file."</p>
 <p>A common example usage of this feature is determining which file to send to a sandboxing system. If a file was generated as part of an analysis, redirection can be used to point to the original file, giving the sandbox <a href="../analysis_module/">analysis module</a> the correct file to analyze.</p>
 <h2 id="linking">Linking<a class="headerlink" href="#linking" title="Permanent link">&para;</a></h2>
-<p>An observable can be <strong>linked to</strong> another observable. Any tags applied to the original observable are also applied to the linked observable.</p>
+<p><strong>Linking</strong> occurs when an observable can be linked to another observable. Any tags applied to the original observable are also applied to the linked observable.</p>
 <h2 id="limited-analysis">Limited Analysis<a class="headerlink" href="#limited-analysis" title="Permanent link">&para;</a></h2>
-<p>An observable can <strong>limit</strong> what <a href="../analysis_module/">analysis modules</a> are executed against it by specifying one or more analysis modules as the <em>limited analysis</em> for the observable. Only modules in the list will be executed against it, and only if the module accepts it.</p>
+<p>Given an observable, a <strong>limited analysis</strong> results from limiting what <a href="../analysis_module/">analysis modules</a> are allowed to execute against it. This occurs by specifying one or more analysis modules as the limited analysis for an observable. Only modules in the specified list will be executed against such observable, and only if the module accepts the observable.</p>
 <h2 id="excluded-analysis">Excluded Analysis<a class="headerlink" href="#excluded-analysis" title="Permanent link">&para;</a></h2>
-<p>An observable can <strong>restrict</strong> what <a href="../analysis_module/">analysis modules</a> are executed against it by specifying one or more analysis modules that will be <em>excluded</em> from analysis. These modules will <strong>not</strong> execute against the observable regardless of any other condition.</p>
+<p>An observable can <em>restrict</em> what <a href="../analysis_module/">analysis modules</a> are executed against it by specifying one or more analysis modules as <strong>excluded analysis</strong>. Modules in the excluded analysis list are <em>excluded</em> from analyzing the observable. These modules will <em>not</em> execute against the observable regardless of any other condition.</p>
 <h2 id="relationships">Relationships<a class="headerlink" href="#relationships" title="Permanent link">&para;</a></h2>
-<p>An observable can have a <em>relationship</em> to another observable. This has meaning only to <a href="../analysis_module/">analysis modules</a> that utilized these relationships.</p>
+<p>An observable can have a <strong>relationship</strong> to another observable. This has meaning only to <a href="../analysis_module/">analysis modules</a> that utilized these relationships.</p>
 <h2 id="grouping-by-time">Grouping by Time<a class="headerlink" href="#grouping-by-time" title="Permanent link">&para;</a></h2>
 <p>Observables can be grouped together for analysis purposes by time. This allows multiple observations over some time period to be treated as a single observation. For example, if the same IP address was observed 50 times over 5 seconds, they can be grouped into a single observation over that 5 second time period.</p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
-<p>An observable can have zero or more <a href="../analysis/">analysis</a> objects attached to it. These represent the analysis performed by <a href="../analysis_module/">analysis modules</a>.</p>
+<p>An observable can have zero or more <strong><a href="../analysis/">analysis</a></strong> objects attached to it. These represent the analysis performed by <a href="../analysis_module/">analysis modules</a>.</p>
                 
                   
                 
@@ -881,7 +899,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../directives/" title="Directives" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../example_flow/" title="Example Flow" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -890,7 +908,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Directives
+                Example Flow
               </span>
             </div>
           </a>

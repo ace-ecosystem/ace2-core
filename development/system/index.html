@@ -204,19 +204,13 @@
         
   
   
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="./" class="md-tabs__link md-tabs__link--active">
+        <a href="../caching/" class="md-tabs__link md-tabs__link--active">
           Development
         </a>
       
     </li>
-  
-
   
 
       
@@ -508,6 +502,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../design/example_flow/" title="Example Flow" class="md-nav__link">
+      Example Flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../design/observable/" title="Observables" class="md-nav__link">
       Observables
     </a>
@@ -568,18 +574,30 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
     
-    <label class="md-nav__link" for="nav-4-1">
+    <label class="md-nav__link" for="nav-4-2">
       System
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-1">
+      <label class="md-nav__title" for="nav-4-2">
         System
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -795,9 +813,9 @@
                 
                 <h1 id="core-system">Core System<a class="headerlink" href="#core-system" title="Permanent link">&para;</a></h1>
 <h2 id="global-system-reference">Global System Reference<a class="headerlink" href="#global-system-reference" title="Permanent link">&para;</a></h2>
-<p>The core system is composed of subsystems that implement some required feature of ace. The full contract of the entire system is found <a href="https://github.com/ace-ecosystem/ace2-core/blob/main/ace/system/__init__.py">here</a>.</p>
+<p>The core system is composed of subsystems that implement some required features of ACE. The full contract of the entire system is found <a href="https://github.com/ace-ecosystem/ace2-core/blob/main/ace/system/__init__.py">here</a>.</p>
 <p>A reference to the global instance of the core system can be obtained by calling <code>ace.system.get_system()</code>. The properties of this object are references to implementations of the subsystem interfaces.</p>
-<p>For example</p>
+<p>For example:</p>
 <pre class="codehilite"><code class="language-python">from ace.system import get_system
 
 # obtain a reference to the analysis tracking subsystem
@@ -807,9 +825,9 @@ get_system().analysis_tracking
 <h2 id="core-api">Core API<a class="headerlink" href="#core-api" title="Permanent link">&para;</a></h2>
 <p>The core API is the set of function calls made available by all of the subsystem interfaces.</p>
 <p>There are two sets of API functions: <em>interface</em> and <em>module</em>.</p>
-<p><strong>The module API is the full ace core API</strong>.</p>
+<p><em>The module API is the full ACE core API</em>.</p>
 <h3 id="interface-api-functions">Interface API Functions<a class="headerlink" href="#interface-api-functions" title="Permanent link">&para;</a></h3>
-<p>Each subsystem interface defines what functions needs to be implemented. For example</p>
+<p>Each subsystem interface defines what functions needs to be implemented. For example:</p>
 <pre class="codehilite"><code class="language-python">class AlertTrackingInterface(ACESystemInterface):
     &quot;&quot;&quot;Tracks alerts as they are detected during the processing of analysis requests.&quot;&quot;&quot;
 
@@ -820,36 +838,36 @@ get_system().analysis_tracking
         raise NotImplementedError()
 </code></pre>
 
-<p>To call the <code>track_alert</code> function using the interface API we would do the following</p>
+<p>To call the <code>track_alert</code> function using the interface API, we would do the following:</p>
 <pre class="codehilite"><code class="language-python">get_system().alerting.track_alert(root)
 </code></pre>
 
-<p>In this code we</p>
+<p>In this code we:</p>
 <ul>
 <li>obtain a reference to the core system with <code>get_system()</code></li>
 <li>obtain a reference to the alert tracking subsystem with <code>.alerting</code></li>
 <li>call the <code>track_alert</code> interface API function</li>
 </ul>
 <h3 id="module-api-functions">Module API Functions<a class="headerlink" href="#module-api-functions" title="Permanent link">&para;</a></h3>
-<p>The interface API functions are wrapped by functions defined at the module level. The functions provide additional functionality such as </p>
+<p>The interface API functions are wrapped by functions defined at the module level. The functions provide additional functionality such as: </p>
 <ul>
 <li>error and type checking</li>
 <li>parameter casting</li>
 <li>logging</li>
 </ul>
 <p>Outside of subsystem interface development, it is better to use the module API functions to interact with the core system.</p>
-<p>For example <code>ace.system.analysis_tracking.AnalysisTrackingInterface</code> defines the <code>get_root_analysis</code> function which could be called like this</p>
+<p>For example, <code>ace.system.analysis_tracking.AnalysisTrackingInterface</code> defines the <code>get_root_analysis</code> function, which could be called like this:</p>
 <pre class="codehilite"><code class="language-python">root = get_system().analysis_tracking.get_root_analysis(uuid)
 </code></pre>
 
-<p>It is recommended to call the same function like this</p>
+<p>It is recommended to call the same function like this:</p>
 <pre class="codehilite"><code class="language-python">from ace.system.analysis_tracking import get_root_analysis
 root = get_root_analysis(uuid)
 </code></pre>
 
-<p>There are module API functions that do not have corresponding interface API functions, but may be composed of them. For example, <code>ace.system.work_queue.get_next_analysis_request</code> has no corresponding interface API function, but is composed of calls to multiple interface API functions.</p>
+<p>There are module API functions that do not have corresponding interface API functions, but they may be composed of them. For example, <code>ace.system.work_queue.get_next_analysis_request</code> has no corresponding interface API function, but is composed of calls to multiple interface API functions.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>Ace core is composed of subsystems referenced by <code>get_system()</code>. Each subsystem defines interface API functions, which are wrapped by module API functions. The entire ace core API is the full set of module API functions.</p>
+<p>ACE core is composed of subsystems referenced by <code>get_system()</code>. Each subsystem defines interface API functions, which are wrapped by module API functions. The entire ACE core API is the full set of module API functions.</p>
                 
                   
                 
@@ -871,7 +889,7 @@ root = get_root_analysis(uuid)
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../design/tags/" title="Tags" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../caching/" title="Caching" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -880,7 +898,7 @@ root = get_root_analysis(uuid)
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Tags
+                Caching
               </span>
             </div>
           </a>
