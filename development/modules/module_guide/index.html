@@ -40,7 +40,7 @@
     
     
       
-        <title>Concurrency - ACE2 - Core System</title>
+        <title>Analysis Module Development Guide (Python) - ACE2 - Core System</title>
       
     
     
@@ -87,7 +87,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#concurrency" tabindex="0" class="md-skip">
+      <a href="#analysis-module-development-guide-python" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -113,7 +113,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Concurrency
+                Analysis Module Development Guide (Python)
               
             </span>
           
@@ -610,10 +610,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
     
     <label class="md-nav__link" for="nav-4-2">
       Modules
@@ -631,70 +633,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/" title="Index" class="md-nav__link">
+    <a href="../" title="Index" class="md-nav__link">
       Index
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../modules/module_guide/" title="Analysis Module Development Guide (Python)" class="md-nav__link">
-      Analysis Module Development Guide (Python)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../modules/python_modules/" title="Analysis Modules (Python)" class="md-nav__link">
-      Analysis Modules (Python)
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" checked>
-    
-    <label class="md-nav__link" for="nav-4-3">
-      System
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-3">
-        System
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../" title="Core System" class="md-nav__link">
-      Core System
     </a>
   </li>
 
@@ -714,11 +654,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Concurrency
+        Analysis Module Development Guide (Python)
       </label>
     
-    <a href="./" title="Concurrency" class="md-nav__link md-nav__link--active">
-      Concurrency
+    <a href="./" title="Analysis Module Development Guide (Python)" class="md-nav__link md-nav__link--active">
+      Analysis Module Development Guide (Python)
     </a>
     
       
@@ -732,36 +672,44 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#concurrent-modification-restrictions" class="md-nav__link">
-    Concurrent Modification Restrictions
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#merging" class="md-nav__link">
-    Merging
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#direct-merge" class="md-nav__link">
-    Direct Merge
+  <a href="#analysis-module-type" class="md-nav__link">
+    Analysis Module Type
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#differential-merge" class="md-nav__link">
-    Differential Merge
+      
+        <li class="md-nav__item">
+  <a href="#analysis-module" class="md-nav__link">
+    Analysis Module
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#loading-additional-resources" class="md-nav__link">
+    Loading Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#async-vs-sync" class="md-nav__link">
+    Async vs Sync
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
   
 </li>
       
@@ -782,7 +730,67 @@
 
 
   <li class="md-nav__item">
-    <a href="../serialization/" title="Serialization" class="md-nav__link">
+    <a href="../python_modules/" title="Analysis Modules (Python)" class="md-nav__link">
+      Analysis Modules (Python)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      System
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        System
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../system/" title="Core System" class="md-nav__link">
+      Core System
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../system/concurrency/" title="Concurrency" class="md-nav__link">
+      Concurrency
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../system/serialization/" title="Serialization" class="md-nav__link">
       Serialization
     </a>
   </li>
@@ -794,7 +802,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../subsystems/" title="Core Subsystems" class="md-nav__link">
+    <a href="../../system/subsystems/" title="Core Subsystems" class="md-nav__link">
       Core Subsystems
     </a>
   </li>
@@ -831,36 +839,44 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#concurrent-modification-restrictions" class="md-nav__link">
-    Concurrent Modification Restrictions
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#merging" class="md-nav__link">
-    Merging
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#direct-merge" class="md-nav__link">
-    Direct Merge
+  <a href="#analysis-module-type" class="md-nav__link">
+    Analysis Module Type
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#differential-merge" class="md-nav__link">
-    Differential Merge
+      
+        <li class="md-nav__item">
+  <a href="#analysis-module" class="md-nav__link">
+    Analysis Module
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#loading-additional-resources" class="md-nav__link">
+    Loading Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#async-vs-sync" class="md-nav__link">
+    Async vs Sync
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    Analysis
+  </a>
   
 </li>
       
@@ -881,28 +897,77 @@
               
                 
                 
-                <h1 id="concurrency">Concurrency<a class="headerlink" href="#concurrency" title="Permanent link">&para;</a></h1>
-<p>The core system is designed in such a way that each subsystem can execute independently from the other. A <a href="">distributed locking system</a> is available to serialize multiple concurrent modification requests to the same object.</p>
-<h2 id="concurrent-modification-restrictions">Concurrent Modification Restrictions<a class="headerlink" href="#concurrent-modification-restrictions" title="Permanent link">&para;</a></h2>
-<p>The core system must resolve concurrent requests to satisfy analysis results. Analysis results can contain <em>side effects</em>. This makes result resolution challenging.</p>
-<p>Consider the following scenario: root analysis object Z<sub>1</sub> contains observable O<sub>1</sub>. Two different analysis modules A<sub>1</sub> and A<sub>2</sub> are registered to analyze O<sub>1</sub>. Both analysis modules operate independently.</p>
-<p>A<sub>2</sub> finishes first adding an analysis result R<sub>2</sub> to O<sub>1</sub> and adding a tag T<sub>1</sub> to O<sub>1</sub>. Adding the tag is a <em>side effect</em>.</p>
-<p>A<sub>1</sub> finishes second and adds analysis result R<sub>1</sub> to O<sub>1</sub> but does <em>not</em> add a tag.</p>
-<p>Due to the side effect, the core system cannot simply replace O<sub>1</sub> when it resolves R<sub>1</sub> because it would overwrite it without the tag that A<sub>2</sub> added to it.</p>
-<p>The core system instead <em>merges</em> the results together.</p>
-<h2 id="merging">Merging<a class="headerlink" href="#merging" title="Permanent link">&para;</a></h2>
-<p><strong>Merging</strong> allows one object to be merged into another. There are two types of merging in the core system: <em>direct</em> and <em>differential</em>. Python classes that support merging will have <code>apply_merge</code> and <code>apply_diff_merge</code> functions.</p>
-<h3 id="direct-merge">Direct Merge<a class="headerlink" href="#direct-merge" title="Permanent link">&para;</a></h3>
-<p>A <strong>direct merge</strong> takes the form of <code>target.apply_merge(source)</code> and copies anything in <code>source</code> that is not in <code>target</code>.</p>
-<p>In our previous example, a direct merge of R<sub>1</sub> into O<sub>1</sub> would <em>preserve</em> T<sub>1</sub> because it would only add the analysis result R<sub>1</sub> and do nothing else.</p>
-<p>Likewise, if R<sub>1</sub> finished first, then a direct merge of R<sub>2</sub> O<sub>1</sub> would <em>add</em> T<sub>1</sub> into O<sub>1</sub> because T<sub>1</sub> does not exist in the target.</p>
-<p>There is another scenario that requires additional logic to handle. Consider the following: root analysis object Z<sub>1</sub> contains observable O<sub>1</sub>. Two different analysis modules A<sub>1</sub> and A<sub>2</sub> are registered to analyze O<sub>1</sub>. Both analysis modules operate independently.</p>
-<p>A<sub>1</sub> finishes first and adds analysis result R<sub>1</sub> to O<sub>1</sub>, but also changes the <code>analysis_mode</code> property of Z<sub>1</sub> from <code>analysis</code> to <code>correlation</code>. This change to Z<sub>1</sub> is a <em>side effect</em>.</p>
-<p>A<sub>2</sub> finishes second and adds analysis result R<sub>2</sub> to O<sub>1</sub>. However, it does not change the <code>analysis_mode</code> property of Z<sub>1</sub>.</p>
-<p>At this point, the core system has no idea if A<sub>2</sub> left the property alone or if it <em>changed it back</em>.</p>
-<h3 id="differential-merge">Differential Merge<a class="headerlink" href="#differential-merge" title="Permanent link">&para;</a></h3>
-<p>A <strong>differential merge</strong> applies the changes (delta) between two objects to a target object. It takes the form of <code>target.apply_diff_merge(before, after)</code> where <code>target</code> is the object to receive the changes, <code>before</code> is the state of the object before the changes were made, and <code>after</code> is the state of the object after the changes were made.</p>
-<p>If we apply this to the previous scenario, the differential merge would see that the <code>analysis_mode</code> property was the same in both the <code>before</code> and <code>after</code> objects, so R<sub>2</sub> would <em>not</em> overwrite the property with the wrong value.</p>
+                <h1 id="analysis-module-development-guide-python">Analysis Module Development Guide (Python)<a class="headerlink" href="#analysis-module-development-guide-python" title="Permanent link">&para;</a></h1>
+<p>The ACE core library provides base classes and utilities for developing analysis modules. They are provided as a means to accelerate development. You do not need to use them (see <a href="">this guide instead.</a>)</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>You create new analysis modules by</p>
+<ul>
+<li>defining a new <em>type</em> of analysis</li>
+<li>creating the Python code that implements the analysis</li>
+<li>registering the new type with an executing core</li>
+<li>starting an <em>analysis module manager</em> with the new module loaded</li>
+</ul>
+<h2 id="analysis-module-type">Analysis Module Type<a class="headerlink" href="#analysis-module-type" title="Permanent link">&para;</a></h2>
+<p>An analysis module <strong>type</strong> describes all the properties of the analysis module such as</p>
+<ul>
+<li>what observables it wants to analyze</li>
+<li>what additional information is required before the module will consider analyzing it</li>
+</ul>
+<p>In the core library the type is represented by the <code>ace.analysis.AnalysisModuleType</code> class.</p>
+<h2 id="analysis-module">Analysis Module<a class="headerlink" href="#analysis-module" title="Permanent link">&para;</a></h2>
+<p>The module that implements the analysis logic is represented by the <code>ace.module.AnalysisModule</code> class. Every instance of <code>AnalysisModule</code> has an associated <code>AnalysisModuleType</code>.</p>
+<p>Note that the <strong>type</strong> is separate from the implementation.</p>
+<p>A simple example of an analysis module that does nothing is as follows.</p>
+<pre class="codehilite"><code class="language-python">class MyAnalysisModule(AnalysisModule):
+    type = AnalysisModuleType(name=&quot;my_analysis_module&quot;, description=&quot;My Analysis Module&quot;)
+
+    def execute_analysis(self, root, observable, analysis):
+        pass
+</code></pre>
+
+<h2 id="loading-additional-resources">Loading Additional Resources<a class="headerlink" href="#loading-additional-resources" title="Permanent link">&para;</a></h2>
+<p>Override and use the <code>load</code> function to load additional resources such as signatures and resource files.</p>
+<pre class="codehilite"><code class="language-python">class MyAnalysisModule(AnalysisModule):
+    type = AnalysisModuleType(name=&quot;my_analysis_module&quot;, description=&quot;My Analysis Module&quot;)
+
+    def execute_analysis(self, root, observable, analysis):
+        pass
+
+    def load(self):
+        # load signature files
+        # open files
+        # open network connections
+</code></pre>
+
+<h2 id="async-vs-sync">Async vs Sync<a class="headerlink" href="#async-vs-sync" title="Permanent link">&para;</a></h2>
+<p>The ACE core library supports analysis modules written to taken advantage of the <code>asyncio</code> library.</p>
+<p>If you prepend <code>async</code> to <code>execute_analysis</code> then the module will be considered <code>async</code>. Otherwise the module is considered <code>sync</code>.</p>
+<p>Modules that are <code>sync</code> are executed on their own process. Modules that are <code>async</code> are executed as part of the <code>asyncio</code> event loop.</p>
+<pre class="codehilite"><code class="language-python"># define an analysis module that uses asyncio
+class MyAsyncAnalysisModule(AnalysisModule):
+    type = AnalysisModuleType(&quot;async_module&quot;, &quot;&quot;)
+
+    async def execute_analysis(self, root, observable, analysis):
+        # do async stuff
+</code></pre>
+
+<h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
+<p>You are expected to analyze the observable passed into the <code>execute_analysis</code> function, and store the results in the <code>analysis</code> object.</p>
+<p>The details of the analysis are stored in the <code>details</code> property of the <code>analysis</code> object. This value must be a <code>dict</code> that can be translated into JSON using Python's standard <code>json</code> library.</p>
+<pre class="codehilite"><code class="language-python">def execute_analysis(self, root, observable, analysis):
+    # details have no schema
+    analysis.details = { &quot;results&quot;: &quot;my results here&quot; }
+</code></pre>
+
+<p>You can also add an additional <a href="">observables</a> you find.</p>
+<pre class="codehilite"><code class="language-python">def execute_analysis(self, root, observable, analysis):
+    # details have no schema
+    analysis.details = { &quot;results&quot;: &quot;my results here&quot; }
+    # add an ip address as an observable
+    analysis.add_observable(&quot;ipv4&quot;, &quot;1.2.3.4&quot;)
+</code></pre>
+
+<p>You can <a href="">do a lot of other things with observables.</a></p>
                 
                   
                 
@@ -924,7 +989,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../" title="Core System" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../" title="Index" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -933,19 +998,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Core System
+                Index
               </span>
             </div>
           </a>
         
         
-          <a href="../serialization/" title="Serialization" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../python_modules/" title="Analysis Modules (Python)" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Serialization
+                Analysis Modules (Python)
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
