@@ -672,9 +672,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#tldr" class="md-nav__link">
+    TL;DR
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-define-the-module-type" class="md-nav__link">
+    Step 1: Define the Module Type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-define-the-analysis-module" class="md-nav__link">
+    Step 2: Define the Analysis Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-register-the-module-type" class="md-nav__link">
+    Step 3: Register the Module Type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-run-an-analysis-module-manager" class="md-nav__link">
+    Step 4: Run an Analysis Module Manager
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -695,6 +729,13 @@
         <li class="md-nav__item">
   <a href="#loading-additional-resources" class="md-nav__link">
     Loading Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading" class="md-nav__link">
+    Upgrading
   </a>
   
 </li>
@@ -839,9 +880,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#tldr" class="md-nav__link">
+    TL;DR
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-define-the-module-type" class="md-nav__link">
+    Step 1: Define the Module Type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-define-the-analysis-module" class="md-nav__link">
+    Step 2: Define the Analysis Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-register-the-module-type" class="md-nav__link">
+    Step 3: Register the Module Type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-run-an-analysis-module-manager" class="md-nav__link">
+    Step 4: Run an Analysis Module Manager
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -862,6 +937,13 @@
         <li class="md-nav__item">
   <a href="#loading-additional-resources" class="md-nav__link">
     Loading Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading" class="md-nav__link">
+    Upgrading
   </a>
   
 </li>
@@ -899,14 +981,37 @@
                 
                 <h1 id="analysis-module-development-guide-python">Analysis Module Development Guide (Python)<a class="headerlink" href="#analysis-module-development-guide-python" title="Permanent link">&para;</a></h1>
 <p>The ACE core library provides base classes and utilities for developing analysis modules. They are provided as a means to accelerate development. You do not need to use them (see <a href="">this guide instead.</a>)</p>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>You create new analysis modules by</p>
-<ul>
-<li>defining a new <em>type</em> of analysis</li>
-<li>creating the Python code that implements the analysis</li>
-<li>registering the new type with an executing core</li>
-<li>starting an <em>analysis module manager</em> with the new module loaded</li>
-</ul>
+<h2 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-define-the-module-type">Step 1: Define the Module Type<a class="headerlink" href="#step-1-define-the-module-type" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-python">from ace.analysis import AnalysisModuleType
+amt = AnalysisModuleType(
+    name=&quot;example_analysis&quot;,
+    description=&quot;Example analysis module type.&quot;
+)
+</code></pre>
+
+<h3 id="step-2-define-the-analysis-module">Step 2: Define the Analysis Module<a class="headerlink" href="#step-2-define-the-analysis-module" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-python">from ace.module.base import AnalysisModule
+class ExampleAnalysisModule(AnalysisModule):
+    type = amt
+    def execute_analysis(self, root, observable, analysis):
+        analysis.details = {&quot;Hello&quot;: &quot;World&quot;}
+        observable = analysis.add_observable(&quot;ipv4&quot;, &quot;1.2.3.4&quot;)
+        observable.add_detection_point(&quot;lol evil ip&quot;)
+</code></pre>
+
+<h3 id="step-3-register-the-module-type">Step 3: Register the Module Type<a class="headerlink" href="#step-3-register-the-module-type" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-python">from ace.api import get_api
+get_api().register_analysis_module_type(amt)
+</code></pre>
+
+<h3 id="step-4-run-an-analysis-module-manager">Step 4: Run an Analysis Module Manager<a class="headerlink" href="#step-4-run-an-analysis-module-manager" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-python">from ace.module.manager import AnalysisModuleManager
+manager = AnalysisModuleManager()
+manager.add_module(ExampleAnalysisModule())
+manager.run()
+</code></pre>
+
 <h2 id="analysis-module-type">Analysis Module Type<a class="headerlink" href="#analysis-module-type" title="Permanent link">&para;</a></h2>
 <p>An analysis module <strong>type</strong> describes all the properties of the analysis module such as</p>
 <ul>
@@ -918,8 +1023,10 @@
 <p>The module that implements the analysis logic is represented by the <code>ace.module.AnalysisModule</code> class. Every instance of <code>AnalysisModule</code> has an associated <code>AnalysisModuleType</code>.</p>
 <p>Note that the <strong>type</strong> is separate from the implementation.</p>
 <p>A simple example of an analysis module that does nothing is as follows.</p>
-<pre class="codehilite"><code class="language-python">class MyAnalysisModule(AnalysisModule):
-    type = AnalysisModuleType(name=&quot;my_analysis_module&quot;, description=&quot;My Analysis Module&quot;)
+<pre class="codehilite"><code class="language-python">class ExampleAnalysisModule(AnalysisModule):
+    type = AnalysisModuleType(
+        name=&quot;example_analysis_module&quot;, 
+        description=&quot;Example analysis module that does nothing.&quot;)
 
     def execute_analysis(self, root, observable, analysis):
         pass
@@ -927,8 +1034,10 @@
 
 <h2 id="loading-additional-resources">Loading Additional Resources<a class="headerlink" href="#loading-additional-resources" title="Permanent link">&para;</a></h2>
 <p>Override and use the <code>load</code> function to load additional resources such as signatures and resource files.</p>
-<pre class="codehilite"><code class="language-python">class MyAnalysisModule(AnalysisModule):
-    type = AnalysisModuleType(name=&quot;my_analysis_module&quot;, description=&quot;My Analysis Module&quot;)
+<pre class="codehilite"><code class="language-python">class ExampleAnalysisModule(AnalysisModule):
+    type = AnalysisModuleType(
+        name=&quot;example_analysis_module&quot;, 
+        description=&quot;Example analysis module that does nothing.&quot;)
 
     def execute_analysis(self, root, observable, analysis):
         pass
@@ -939,18 +1048,43 @@
         # open network connections
 </code></pre>
 
-<h2 id="async-vs-sync">Async vs Sync<a class="headerlink" href="#async-vs-sync" title="Permanent link">&para;</a></h2>
-<p>The ACE core library supports analysis modules written to taken advantage of the <code>asyncio</code> library.</p>
-<p>If you prepend <code>async</code> to <code>execute_analysis</code> then the module will be considered <code>async</code>. Otherwise the module is considered <code>sync</code>.</p>
-<p>Modules that are <code>sync</code> are executed on their own process. Modules that are <code>async</code> are executed as part of the <code>asyncio</code> event loop.</p>
-<pre class="codehilite"><code class="language-python"># define an analysis module that uses asyncio
-class MyAsyncAnalysisModule(AnalysisModule):
-    type = AnalysisModuleType(&quot;async_module&quot;, &quot;&quot;)
+<h2 id="upgrading">Upgrading<a class="headerlink" href="#upgrading" title="Permanent link">&para;</a></h2>
+<p>Override the <code>upgrade</code> function to re-load any data needed to compute the analysis. This is useful for analysis modules that use external data such as signatures and rule sets.</p>
+<pre class="codehilite"><code class="language-python">class ExampleAnalysisModule(AnalysisModule):
+    type = AnalysisModuleType(
+        name=&quot;example_analysis_module&quot;, 
+        description=&quot;Example analysis module that does nothing.&quot;)
 
-    async def execute_analysis(self, root, observable, analysis):
-        # do async stuff
+    def execute_analysis(self, root, observable, analysis):
+        pass
+
+    def upgrade(self):
+        # (for example)
+        self.rules = self.load_my_rule_set()
 </code></pre>
 
+<h2 id="async-vs-sync">Async vs Sync<a class="headerlink" href="#async-vs-sync" title="Permanent link">&para;</a></h2>
+<p>The ACE core library supports analysis modules written to taken advantage of the <code>asyncio</code> library.</p>
+<p>If you prepend <code>async</code> to <code>execute_analysis</code>, <code>upgrade</code> and <code>load</code> then the module will be considered <code>async</code>. Otherwise the module is considered <code>sync</code>.</p>
+<p>Modules that are <code>sync</code> are executed on their own process. Modules that are <code>async</code> are executed as part of the <code>asyncio</code> event loop.</p>
+<pre class="codehilite"><code class="language-python"># define an analysis module that uses asyncio
+class ExampleAsyncAnalysisModule(AnalysisModule):
+    type = AnalysisModuleType(
+        name=&quot;async_module&quot;, 
+        description=&quot;Example async analysis module.&quot;
+    )
+
+    async def execute_analysis(self, root, observable, analysis):
+        # do async analysis
+
+    async def upgrade(self):
+        # do async upgrade
+
+    async def load(self):
+        # do async load
+</code></pre>
+
+<p>You can also use the <code>AsyncAnalysisModule</code> class which already has the function definitions set up correctly (meaning you don't have to override upgrade and load if you're not using them.)</p>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <p>You are expected to analyze the observable passed into the <code>execute_analysis</code> function, and store the results in the <code>analysis</code> object.</p>
 <p>The details of the analysis are stored in the <code>details</code> property of the <code>analysis</code> object. This value must be a <code>dict</code> that can be translated into JSON using Python's standard <code>json</code> library.</p>
