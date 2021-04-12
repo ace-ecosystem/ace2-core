@@ -87,7 +87,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#ace2-core-system" tabindex="0" class="md-skip">
+      <a href="#analysis-correlation-engine" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -108,7 +108,14 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            ACE2 - Core System
+            <span class="md-header-nav__topic">
+              ACE2 - Core System
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Analysis Correlation Engine
+              
+            </span>
           
         </div>
       </div>
@@ -160,10 +167,23 @@
   <li class="md-tabs__item">
     
       <a href="." class="md-tabs__link md-tabs__link--active">
-        ACE2 - Core System
+        Analysis Correlation Engine
       </a>
     
   </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="admin/" class="md-tabs__link">
+          Admin
+        </a>
+      
+    </li>
+  
 
       
         
@@ -197,7 +217,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="development/caching/" class="md-tabs__link">
+        <a href="development/" class="md-tabs__link">
           Development
         </a>
       
@@ -243,11 +263,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        ACE2 - Core System
+        Analysis Correlation Engine
       </label>
     
-    <a href="." title="ACE2 - Core System" class="md-nav__link md-nav__link--active">
-      ACE2 - Core System
+    <a href="." title="Analysis Correlation Engine" class="md-nav__link md-nav__link--active">
+      Analysis Correlation Engine
     </a>
     
       
@@ -261,37 +281,37 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fundamentals" class="md-nav__link">
-    Fundamentals
+  <a href="#the-somewhat-long-winded-description-of-ace" class="md-nav__link">
+    The Somewhat Long-winded Description of ACE
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#system-design-overview" class="md-nav__link">
-    System Design Overview
+  <a href="#tldr" class="md-nav__link">
+    TL;DR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-ace" class="md-nav__link">
+    Why ACE?
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#analysis-module-overview" class="md-nav__link">
-    Analysis Module Overview
+  <a href="#strengths" class="md-nav__link">
+    Strengths
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#core-system-overview" class="md-nav__link">
-    Core System Overview
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-management-overview" class="md-nav__link">
-    Alert Management Overview
+  <a href="#weaknesses" class="md-nav__link">
+    Weaknesses
   </a>
   
 </li>
@@ -302,84 +322,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-system-details" class="md-nav__link">
-    Core System Details
+  <a href="#quick-start" class="md-nav__link">
+    Quick Start
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#core-system-initialization" class="md-nav__link">
-    Core System Initialization
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analysis-module-registration" class="md-nav__link">
-    Analysis Module Registration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#root-analysis-request-processing" class="md-nav__link">
-    Root Analysis Request Processing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analysis-result-processing" class="md-nav__link">
-    Analysis Result Processing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alerting" class="md-nav__link">
-    Alerting
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analysis-result-cache" class="md-nav__link">
-    Analysis Result Cache
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
-    Storage
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#locking" class="md-nav__link">
-    Locking
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#work-queues" class="md-nav__link">
-    Work Queues
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow-example" class="md-nav__link">
-    Workflow Example
+  <a href="#advanced-usage" class="md-nav__link">
+    Advanced Usage
   </a>
   
 </li>
@@ -405,10 +356,46 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
-      Core
+      Admin
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        Admin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="admin/" title="ACE Administration Guide" class="md-nav__link">
+      ACE Administration Guide
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Core
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
         Core
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -582,13 +569,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Design
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         Design
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -726,17 +713,29 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       Development
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         Development
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="development/" title="ACE2 Development Guide" class="md-nav__link">
+      ACE2 Development Guide
+    </a>
+  </li>
+
         
           
           
@@ -757,13 +756,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
     
-    <label class="md-nav__link" for="nav-4-2">
+    <label class="md-nav__link" for="nav-5-3">
       Modules
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-2">
+      <label class="md-nav__title" for="nav-5-3">
         Modules
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -775,8 +774,8 @@
 
 
   <li class="md-nav__item">
-    <a href="development/modules/" title="Index" class="md-nav__link">
-      Index
+    <a href="development/modules/" title="Analysis Module Development" class="md-nav__link">
+      Analysis Module Development
     </a>
   </li>
 
@@ -817,13 +816,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
     
-    <label class="md-nav__link" for="nav-4-3">
+    <label class="md-nav__link" for="nav-5-4">
       System
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-3">
+      <label class="md-nav__title" for="nav-5-4">
         System
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -908,37 +907,37 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fundamentals" class="md-nav__link">
-    Fundamentals
+  <a href="#the-somewhat-long-winded-description-of-ace" class="md-nav__link">
+    The Somewhat Long-winded Description of ACE
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#system-design-overview" class="md-nav__link">
-    System Design Overview
+  <a href="#tldr" class="md-nav__link">
+    TL;DR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-ace" class="md-nav__link">
+    Why ACE?
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#analysis-module-overview" class="md-nav__link">
-    Analysis Module Overview
+  <a href="#strengths" class="md-nav__link">
+    Strengths
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#core-system-overview" class="md-nav__link">
-    Core System Overview
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-management-overview" class="md-nav__link">
-    Alert Management Overview
+  <a href="#weaknesses" class="md-nav__link">
+    Weaknesses
   </a>
   
 </li>
@@ -949,84 +948,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-system-details" class="md-nav__link">
-    Core System Details
+  <a href="#quick-start" class="md-nav__link">
+    Quick Start
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#core-system-initialization" class="md-nav__link">
-    Core System Initialization
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analysis-module-registration" class="md-nav__link">
-    Analysis Module Registration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#root-analysis-request-processing" class="md-nav__link">
-    Root Analysis Request Processing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analysis-result-processing" class="md-nav__link">
-    Analysis Result Processing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alerting" class="md-nav__link">
-    Alerting
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#analysis-result-cache" class="md-nav__link">
-    Analysis Result Cache
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
-    Storage
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#locking" class="md-nav__link">
-    Locking
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#work-queues" class="md-nav__link">
-    Work Queues
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow-example" class="md-nav__link">
-    Workflow Example
+  <a href="#advanced-usage" class="md-nav__link">
+    Advanced Usage
   </a>
   
 </li>
@@ -1048,136 +978,135 @@
               
                 
                 
-                <h1 id="ace2-core-system">ACE2 - Core System<a class="headerlink" href="#ace2-core-system" title="Permanent link">&para;</a></h1>
-<p>This documentation is a work in progress coinciding with the development of the <strong>ACE2 Core System</strong>. The ACE2 core system is <em>the</em> core component of a complete re-write of the <strong>Analysis Correlation Engine (ACE)</strong>. Allow for imperfections as various sections of the documentation can be somewhere between pseudo code and proper documentation.</p>
-<p>This is what is in mind:</p>
-<pre class="codehilite"><code class="language-python">from ace.analysis import RootAnalysis
-from ace.modules.threaded import initialize_modules
-from ace.system.threaded import initialize_system
+                <h1 id="analysis-correlation-engine">Analysis Correlation Engine<a class="headerlink" href="#analysis-correlation-engine" title="Permanent link">&para;</a></h1>
+<p>If you're looking to just try this out, just down to the <a href="">quick start guide</a> on this page to see what this system is capable of.</p>
+<p>If you're an analyst and you want to add something new to ACE, then <a href="">look here.</a></p>
+<h2 id="the-somewhat-long-winded-description-of-ace">The Somewhat Long-winded Description of ACE<a class="headerlink" href="#the-somewhat-long-winded-description-of-ace" title="Permanent link">&para;</a></h2>
+<p>The Analysis Correlation Engine (ACE) is a recursive analysis engine geared towards cyber security. You submit stuff, the stuff you submit gets analyzed, and then you get a result back.</p>
+<p>Most of the time there are already certain things you know about what you're submitting. You've probably already <strong>analyzed</strong> the thing you're submitting, and as part of that <strong>analysis</strong>, you've made some <strong>observations</strong>.</p>
+<p>In ACE we take that idea and build on it, and we give names to specific parts of the idea.</p>
+<p>The "thing" we're submitting is called a <strong>Root Analysis</strong>. It's essentially a container for all the stuff we want to analyze.</p>
+<p>All the things we've already observed that we understand we identify as <strong>Observables</strong>. Each observable has a type (such as username, ip address, or file name), a value, and maybe a time recorded for the observation.</p>
+<p>And then, naturally, that thing you observed has be analyzed. When you analyze something, you produce some kind of a result, or at least draw some kind of a conclusion. Usually you're trying to answer a question you need to have answered before you can move on to the next thing. For example, if you have observed an ip address in your environment, you might want to answer the question of "Does this IP address exist in that list of IP addresses my intelligence team gave me last week?"</p>
+<p>We call the output of analyzing an observable an <strong>Analysis</strong>. And then, as a part of doing this additional analysis, you might make more observations. For example, you might actually find that the ip address was actually in that list you were looking at, so you would say that you have observed a suspect ip address interacting with your environment. In ACE, an <strong>Analysis</strong> can produce additional <strong>Observables</strong>, which can also be analyzed.</p>
+<p>The next step would be to search in all of your logs for any occurrence of this ip address to see if anyone in your environment interacted with it around the time the original observation was made. If you found something, say a user browsed to a site hosted on the ip address through your corporate proxy, then you might want to spend your precious time on <strong>that</strong>!</p>
+<p>In ACE we would add a <strong>Detection</strong> to the observation of the url that was used to access the suspect site hosted on the suspect ip address.</p>
+<p>And then any <strong>Root Analysis</strong> with at least one <strong>Detection</strong> ends up turning into an <strong>Alert</strong> that gets sent to an <strong>Alert Management System</strong> analysts can use to really dive into the details of what happened.</p>
+<h2 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h2>
+<p>ACE defines very basic data types which it uses to recursively analyze data. <em>Something</em> is submitted to ACE for analysis. We call this <em>something</em> a <strong>Root Analysis</strong>. <strong>Observations</strong> are made on the <strong>analysis</strong>. Those observations are also analyzed producing additional analysis until all observations are analyzed. Analysis is performed by <strong>analysis modules</strong>. An <strong>alert</strong> is created by adding a <strong>detection</strong> to an observation or analysis. Alerts are submitted to an <strong>alert management system</strong> for review.</p>
+<p>ACE uses free-form JSON data structures to represent the results of analysis.</p>
+<h2 id="why-ace">Why ACE?<a class="headerlink" href="#why-ace" title="Permanent link">&para;</a></h2>
+<p>Good question. There's a lot of stuff in the cyber security world that you can use for this. Here are some of the strengths and weaknesses of this one.</p>
+<h3 id="strengths">Strengths<a class="headerlink" href="#strengths" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Alert enrichment: ACE can be used to enrich existing alert data, hopefully cutting down the time it takes an analyst to come to a conclusion on any given alert.</li>
+<li>Detection: The same engine that enriches alerts can also be used as a generic detection engine. Throw stuff at it that you're not sure about, it'll alert if it finds something.</li>
+<li>Email Scanning: ACE has special support built-in for scanning your corporate email as it's delivered to your user's mailboxes. This gives you a real shot at stopping some of the most popular attacks we've been seeing, without risking blocking legitimate emails.</li>
+<li>Extendable: ACE has be <strong>easily</strong> extended to add additional functionality. As a matter of fact, this was one of the primary focus points of the design of the entire system. Analysts with even basic programming skills can add new capabilities to the system without having an administrator worry about the impact to it.</li>
+<li>Scalable - The design of the system is super scalable. If you find you're system falling behind, you can just spin up ACE on another system and hook it up with a few commands.</li>
+<li>Usable - If you're an analyst, you can just use it on your own. You really don't need someone to do a full deployment for you in order to use it.</li>
+<li>Tooling - The tools are built with a Unix design philosophy in mind, meaning you can run ACE as part of a chain of commands tied together with pipes.</li>
+</ul>
+<h3 id="weaknesses">Weaknesses<a class="headerlink" href="#weaknesses" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Like nobody is using it yet.</li>
+<li>Only a few people support it so far.</li>
+<li>You need someone with some decent IT skills to run it for a team. It's not a point-and-click kind of thing.</li>
+<li>You probably still need to build all the integration with all the random stuff your company runs that this project probably doesn't support yet. But if you do that, maybe consider joining the project!</li>
+</ul>
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<pre class="codehilite"><code class="language-python">#
+# let's analyze something right now
+#
+# requires python3.9
+python3.9 -m venv .venv
+source .venv/bin/activate
 
-initialize_system()
-modules = initialize_modules()
-modules.register()
-modules.start()
+# this installs everything at once
+pip install ace2[all]
 
-root = RootAnalysis(description=&quot;Example&quot;)
-observable = root.add_observable('ipv4', '1.2.3.4')
-root.submit()
+# install the packages we know about
+# this connects to our public github page and gets the list of all the known packages
+# it can also use the env var ACE_PACKAGE_URI to get a different custom list
+ace2 package install --all
 
-root.wait()
-print(root)
+# now analyze that suspicious file your boss's boss sent your boss who sent it to you
+ace2 analyze file email_attachment.doc
+
+# or a URL
+ace2 analyze url http://bit.ly/blahblah
+
+# or an IP (v4) address
+ace2 analyze ipv4 8.8.4.4 
 </code></pre>
 
-<h2 id="fundamentals">Fundamentals<a class="headerlink" href="#fundamentals" title="Permanent link">&para;</a></h2>
-<p>ACE is fundamentally <em>the analysis of observations</em>. You have <em>observables</em>, which are the things you have observed, and then you have the <em>analysis</em> of those observables, which may in turn produce additional observables that need to be analyzed.</p>
-<p>The process is recursive until all observations have been analyzed.</p>
-<p>ACE is a system that provides this simple analysis capability.</p>
-<h2 id="system-design-overview">System Design Overview<a class="headerlink" href="#system-design-overview" title="Permanent link">&para;</a></h2>
-<p>ACE is split up into three pieces: <em>core system</em>, <em>analysis modules</em>, and <em>alert management</em>. Each system can operate on its own, independent of each other. They can (and do) communicate with each other through defined interfaces.</p>
-<h3 id="analysis-module-overview">Analysis Module Overview<a class="headerlink" href="#analysis-module-overview" title="Permanent link">&para;</a></h3>
-<p>An <strong>analysis module</strong> takes an observable as input, generates analysis results, and may produce zero or more observables as output. ACE can support any number of analysis modules in any programming language.</p>
-<h3 id="core-system-overview">Core System Overview<a class="headerlink" href="#core-system-overview" title="Permanent link">&para;</a></h3>
-<p>The <strong>core system</strong> is responsible for tracking analysis requests/results, storing file content, maintaining a result cache, and other required operations.</p>
-<p>The core system is itself composed of individual systems that are simple to extend to provide additional functionality.</p>
-<h3 id="alert-management-overview">Alert Management Overview<a class="headerlink" href="#alert-management-overview" title="Permanent link">&para;</a></h3>
-<p>The <strong>alert management system</strong> receives alert tracking requests from the core system and tracks them over the lifetime of the alert. It provides tooling around alerts, as well as a graphical user interface for analysts to review and disposition the alerts.</p>
-<h2 id="core-system-details">Core System Details<a class="headerlink" href="#core-system-details" title="Permanent link">&para;</a></h2>
-<p>The core system is composed of multiple <em>abstract interfaces</em>, which can each be implemented in any manner required. These core system interfaces are listed below.</p>
-<ul>
-<li>alerting: provides an interface to send an alert to the alert management system</li>
-<li>analysis tracking: keeps track of root analysis data and analysis details</li>
-<li>caching: keeps a cache of recent analysis results</li>
-<li>configuration: provides a way to read and write configuration data</li>
-<li>events: provides a way to subscribe to events generated by the core system</li>
-<li>locking: provides a global locking system to provide concurrency</li>
-<li>module tracking: keeps track of registered analysis modules</li>
-<li>request tracking: keeps track of analysis requests</li>
-<li>storage: provides a generic interface to read and write arbitrary binary data</li>
-<li>work queue: provides an interface for analysis modules to receive analysis requests</li>
-</ul>
-<p>Each interface is defined in <code>ace.system.*</code> Each abstract interface function is wrapped by an importable function that may provide additional functionality, error checking, or simplification for use.</p>
-<h3 id="core-system-initialization">Core System Initialization<a class="headerlink" href="#core-system-initialization" title="Permanent link">&para;</a></h3>
-<p>The first step is to provide a running core system that implements all the interfaces listed above.</p>
-<h3 id="analysis-module-registration">Analysis Module Registration<a class="headerlink" href="#analysis-module-registration" title="Permanent link">&para;</a></h3>
-<p>Once the core system is running, analysis modules must then register themselves to the system. This is accomplished by calling the <code>register_analysis_module_type</code> function.</p>
-<p>An analysis module type defines what requirements and restrictions are around certain kinds of observables that the analysis module will accept. The most simple and common requirement is providing a list of one or more observable types the module supports. The core system will only generate analysis requests for observables that match the given type(s). A more complex example might be an analysis module that depends on another analysis module, in which case, ACE would not submit an analysis request until the dependency is met.</p>
-<p>Analysis modules also register under specific versions. The core system keeps track of the registration data.</p>
-<p>Finally, each module asks the core system for the next analysis request to process by calling the <code>get_next_analysis_request</code> function, which blocks until work is available or the analysis reaches time out.</p>
-<h3 id="root-analysis-request-processing">Root Analysis Request Processing<a class="headerlink" href="#root-analysis-request-processing" title="Permanent link">&para;</a></h3>
-<p>New analysis requests are submitted to the core system by submitting a <strong>root analysis request</strong>. The analysis is tracked, and new <em>observable analysis requests</em> are generated for each observable that requires analysis by any registered analysis module. These requests are placed into the work queues assigned to each analysis module type. The requests are then picked up by the analysis modules through these queues.</p>
-<h3 id="analysis-result-processing">Analysis Result Processing<a class="headerlink" href="#analysis-result-processing" title="Permanent link">&para;</a></h3>
-<p>Analysis modules post the results of the analysis by submitting an <em>observable analysis result</em>, which includes both the original request, as well as the results of the analysis.</p>
-<p>The <em>difference</em> between the original request and the generated analysis is computed. Then the difference is applied to the tracked analysis objects.</p>
-<p>Any additional observations are analyzed as before, generating new observable analysis requests. This process continues until all analysis modules have completed analysis for all observables they accept.</p>
-<h3 id="alerting">Alerting<a class="headerlink" href="#alerting" title="Permanent link">&para;</a></h3>
-<p>Any root analysis that has one or more detection points is submitted to the alert management system. This can occur multiple times for the same root analysis.</p>
-<h3 id="analysis-result-cache">Analysis Result Cache<a class="headerlink" href="#analysis-result-cache" title="Permanent link">&para;</a></h3>
-<p>The result of the analysis of an observation can be <em>cached</em> if an analysis module is registered with a time-to-live value set for the cache. If the module types has this value, then it looks up results in the cache <em>before</em> making any analysis requests. This prevents duplicate analysis work in the cases where the results can be cached.</p>
-<h3 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h3>
-<p>ACE provides a very generic way to store any binary content. Data is stored as binary and referenced by sha256 hash. All data is associated to a root analysis. Any data that is no longer referenced automatically expires after some configurable time.</p>
-<h3 id="locking">Locking<a class="headerlink" href="#locking" title="Permanent link">&para;</a></h3>
-<p>ACE provides a generic way to obtain a lock on anything that can be identified by a simple string. Locks:</p>
-<ul>
-<li>are reentrant</li>
-<li>are distributed</li>
-<li>have time outs</li>
-</ul>
-<p>The core system uses the <strong>locking</strong> capability extensively to provide concurrency between all the different interfaces.</p>
-<h3 id="work-queues">Work Queues<a class="headerlink" href="#work-queues" title="Permanent link">&para;</a></h3>
-<p>When a new analysis module type is registered, a new <strong>work queue</strong> is created for that type. When the core system generates analysis requests for that type, those requests are sent to the work queue. The external analysis module instances then acquire these analysis requests through the work queue.</p>
-<p>A single analysis request cannot be acquired by multiple analysis module instances. The queues are FIFO.</p>
-<h2 id="workflow-example">Workflow Example<a class="headerlink" href="#workflow-example" title="Permanent link">&para;</a></h2>
-<p>This walks you through a really simple example of pretending to analyze an observable of type "test." Note that we are showing pseudo code for different components of ACE.</p>
-<p>Also, observe that we never actually assume the role of the core system because the core system simply responds to and processes requests from the other systems.</p>
-<pre class="codehilite"><code class="language-python"># assume this initializes a core system
-initialize_system()
+<h2 id="advanced-usage">Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permanent link">&para;</a></h2>
+<pre class="codehilite"><code class="language-python"># 
+# here's some more stuff you can do
+#
+# we could install packages manually
+# directly from github
+ace2 package install ace2 package install git@github.com:ace-ecosystem/ace2-modules.git
+# or from a url
+ace2 package install ace2 package install http://someserver.com/ace2-package.zip
+# or from a local zip file you downloaded with curl
+ace2 package install ace2 package install /path/to/ace2-package.zip
 
+# make sure all the packages are up to date
+# this also updates all the modules
+ace2 package update
+
+# could also do this to just update modules (signatures and such)
+# for the ones that support it
+ace2 module update
+
+# now I can see what packages I have installed
+ace2 package list
+
+# and even see what modules I have available
+# from all the packages I have installed
+ace2 module list
+
+# and what services I can start
+ace2 service list
+
+#
+# PARTICIPATING IN A CORE
+#
+
+# a little more advanced usage here
+
+# specify the core to connect to
+export ACE_URI=&quot;https://ace2.local/&quot;
+export ACE_API_KEY=&quot;6a36ffce-507e-469f-8d68-39ca00fa9ccb&quot;
+
+# attach all the modules we have on this system to the remote core
+# and start processing requests
+# this is an example of how to scale (manually anyways)
+ace2 service start manager
+
+#
+# REMOTE USAGE OF A CORE
+#
+
+# now this command uses the remote core
+# since we have our env vars set up
+ace2 analyze ipv4 3.127.0.4
+
+# this lists the analysis modules of the remote core
+ace2 module list
+
+#
+# PRODUCTION COMMANDS
 # 
-# assume the role of analysis module first
-# ----------------------------------------
 
-# register a basic analysis module
-# in this case we register an analysis module of type &quot;test&quot; which accepts observables of type &quot;test&quot;
-amt = AnalysisModuleType(&quot;test&quot;, &quot;this is a test analysis module&quot;, ['test'])
-register_analysis_module_type(amt)
+# start a production core system
+docker-compose -f ace2-core.yml
 
-# 
-# assume the role of something that collects stuff to analyze
-# -----------------------------------------------------------
+# start containers that run the modules
+docker-compose -f ace2-modules.yml
 
-# create a new root analysis as our analysis &quot;container&quot;
-root = RootAnalysis()
-# add a new observable with type &quot;type&quot; and value &quot;test&quot;
-observable = root.add_observable(&quot;test&quot;, &quot;test&quot;)
-# submit the root for analysis to the core system
-process_analysis_request(root.create_analysis_request())
-
-# at this point the core system has taken the request and generated
-# a new observable analysis request which is placed in the work queue for analysis module type &quot;test&quot;
-
-#
-# assume the role of the analysis module
-# --------------------------------------
-
-# first we create an identity
-# this is just some unique name that identifies the *instance* of the executing analysis module
-owner_uuid = &quot;test host localhost pid 12343 tid 12343353&quot;
-
-# receive the next work item
-# the format is get_next_analysis_request(who_you_are, which_analysis_module_type, how_long_to_wait)
-request = get_next_analysis_request(owner_uuid, amt, 0)
-
-# pretend to analyze it by generating details
-analysis_details = {&quot;test&quot;: &quot;result&quot;}
-request.result = request.create_result()
-request.result.observable.add_analysis(type=amt, details=analysis_details)
-
-# submit the result of the analysis to the core system
-process_analysis_request(request)
-
-#
-# at this point the analysis is complete because we did not add an additional observables
-#
+# more to come as development continues...
 </code></pre>
                 
                   
@@ -1201,13 +1130,13 @@ process_analysis_request(request)
       <nav class="md-footer-nav__inner md-grid">
         
         
-          <a href="core/" title="Core System" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="admin/" title="ACE Administration Guide" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Core System
+                ACE Administration Guide
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

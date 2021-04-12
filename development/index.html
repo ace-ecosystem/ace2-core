@@ -1,0 +1,1338 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Analysis Correlation Engine 2.0 - Core System">
+      
+      
+      
+        <meta name="author" content="John Davison">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>ACE2 Development Guide - ACE2 - Core System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#ace2-development-guide" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="ACE2 - Core System" aria-label="ACE2 - Core System" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              ACE2 - Core System
+            </span>
+            <span class="md-header-nav__topic">
+              
+                ACE2 Development Guide
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." class="md-tabs__link">
+        Analysis Correlation Engine
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../admin/" class="md-tabs__link">
+          Admin
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../core/" class="md-tabs__link">
+          Core
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../design/alerts/" class="md-tabs__link">
+          Design
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          Development
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="ACE2 - Core System" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    ACE2 - Core System
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Analysis Correlation Engine" class="md-nav__link">
+      Analysis Correlation Engine
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Admin
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Admin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../admin/" title="ACE Administration Guide" class="md-nav__link">
+      ACE Administration Guide
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Core
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Core
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core/" title="Core System" class="md-nav__link">
+      Core System
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core/alerting/" title="Alerting" class="md-nav__link">
+      Alerting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core/analysis_module_tracking/" title="Analysis Module Tracking" class="md-nav__link">
+      Analysis Module Tracking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core/analysis_module_type/" title="Analysis Module Type" class="md-nav__link">
+      Analysis Module Type
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core/analysis_request_tracking/" title="Analysis Request Tracking" class="md-nav__link">
+      Analysis Request Tracking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core/analysis_requests/" title="Analysis Requests" class="md-nav__link">
+      Analysis Requests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core/analysis_tracking/" title="Analysis Tracking" class="md-nav__link">
+      Analysis Tracking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core/caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core/events/" title="Events" class="md-nav__link">
+      Events
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core/locking/" title="Locking" class="md-nav__link">
+      Locking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core/modules/" title="Analysis Modules" class="md-nav__link">
+      Analysis Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core/storage/" title="Storage" class="md-nav__link">
+      Storage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core/work_queue/" title="Work Queues" class="md-nav__link">
+      Work Queues
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Design
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Design
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../design/alerts/" title="Alerts" class="md-nav__link">
+      Alerts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../design/analysis/" title="Analysis" class="md-nav__link">
+      Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../design/analysis_modes/" title="Analysis Modes" class="md-nav__link">
+      Analysis Modes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../design/analysis_module/" title="Analysis Module" class="md-nav__link">
+      Analysis Module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../design/detection_points/" title="Detection Points" class="md-nav__link">
+      Detection Points
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../design/directives/" title="Directives" class="md-nav__link">
+      Directives
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../design/example_flow/" title="Example Flow" class="md-nav__link">
+      Example Flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../design/observable/" title="Observables" class="md-nav__link">
+      Observables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../design/root_analysis/" title="Root Analysis" class="md-nav__link">
+      Root Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../design/tags/" title="Tags" class="md-nav__link">
+      Tags
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Development
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Development
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        ACE2 Development Guide
+      </label>
+    
+    <a href="./" title="ACE2 Development Guide" class="md-nav__link md-nav__link--active">
+      ACE2 Development Guide
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-root-analysis" class="md-nav__link">
+    Quick Start - Root Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-analysis-modules" class="md-nav__link">
+    Quick Start - Analysis Modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-design-overview" class="md-nav__link">
+    System Design Overview
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis-module-overview" class="md-nav__link">
+    Analysis Module Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-system-overview" class="md-nav__link">
+    Core System Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alert-management-overview" class="md-nav__link">
+    Alert Management Overview
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-system-details" class="md-nav__link">
+    Core System Details
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-system-initialization" class="md-nav__link">
+    Core System Initialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-module-registration" class="md-nav__link">
+    Analysis Module Registration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-module-versioning" class="md-nav__link">
+    Analysis Module Versioning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#root-analysis-request-processing" class="md-nav__link">
+    Root Analysis Request Processing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-result-processing" class="md-nav__link">
+    Analysis Result Processing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alerting" class="md-nav__link">
+    Alerting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-result-cache" class="md-nav__link">
+    Analysis Result Cache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    Storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-queues" class="md-nav__link">
+    Work Queues
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-example" class="md-nav__link">
+    Workflow Example
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="caching/" title="Caching" class="md-nav__link">
+      Caching
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
+    
+    <label class="md-nav__link" for="nav-5-3">
+      Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-3">
+        Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="modules/" title="Analysis Module Development" class="md-nav__link">
+      Analysis Module Development
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="modules/module_guide/" title="Analysis Module Development Guide (Python)" class="md-nav__link">
+      Analysis Module Development Guide (Python)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="modules/python_modules/" title="Analysis Modules (Python)" class="md-nav__link">
+      Analysis Modules (Python)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
+    
+    <label class="md-nav__link" for="nav-5-4">
+      System
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-4">
+        System
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="system/" title="Core System" class="md-nav__link">
+      Core System
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="system/concurrency/" title="Concurrency" class="md-nav__link">
+      Concurrency
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="system/serialization/" title="Serialization" class="md-nav__link">
+      Serialization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="system/subsystems/" title="Core Subsystems" class="md-nav__link">
+      Core Subsystems
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-root-analysis" class="md-nav__link">
+    Quick Start - Root Analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-analysis-modules" class="md-nav__link">
+    Quick Start - Analysis Modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-design-overview" class="md-nav__link">
+    System Design Overview
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis-module-overview" class="md-nav__link">
+    Analysis Module Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-system-overview" class="md-nav__link">
+    Core System Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alert-management-overview" class="md-nav__link">
+    Alert Management Overview
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-system-details" class="md-nav__link">
+    Core System Details
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-system-initialization" class="md-nav__link">
+    Core System Initialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-module-registration" class="md-nav__link">
+    Analysis Module Registration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-module-versioning" class="md-nav__link">
+    Analysis Module Versioning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#root-analysis-request-processing" class="md-nav__link">
+    Root Analysis Request Processing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-result-processing" class="md-nav__link">
+    Analysis Result Processing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alerting" class="md-nav__link">
+    Alerting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-result-cache" class="md-nav__link">
+    Analysis Result Cache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    Storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-queues" class="md-nav__link">
+    Work Queues
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-example" class="md-nav__link">
+    Workflow Example
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="ace2-development-guide">ACE2 Development Guide<a class="headerlink" href="#ace2-development-guide" title="Permanent link">&para;</a></h1>
+<h2 id="quick-start-root-analysis">Quick Start - Root Analysis<a class="headerlink" href="#quick-start-root-analysis" title="Permanent link">&para;</a></h2>
+<p>All analysis starts with a <a href="">root</a> object. The root contains the details of the analysis in a schema-less JSON format. The process making the submission identifies the initial <a href="">observations</a>.</p>
+<p>Any kind of process in any programming language can be used to feed <a href="">root</a> objects to ACE using the <a href="">API</a>.</p>
+<pre class="codehilite"><code class="language-python">from ace.analysis import RootAnalysis
+root = RootAnalysis(details={&quot;source_ip&quot;: &quot;1.2.3.4&quot;})
+observable = root.add_observable(&quot;ipv4&quot;, &quot;1.2.3.4&quot;)
+root.submit()
+</code></pre>
+
+<h2 id="quick-start-analysis-modules">Quick Start - Analysis Modules<a class="headerlink" href="#quick-start-analysis-modules" title="Permanent link">&para;</a></h2>
+<p>All analysis is performed by <a href="">analysis modules</a>. Modules execute as a separate component of the system. ACE has a built-in module manager that can be used to build analysis modules in Python. You are free to author analysis modules in any programming language using the <a href="">API</a>.</p>
+<pre class="codehilite"><code class="language-python">class IPv4Lookup(AnalysisModule):
+    type = AnalysisModuleType(
+        name =&quot;ipv4_lookup&quot;,
+        description = &quot;Looks up IPv4 addresses in some useful way.&quot;)
+
+    def execute_analysis(self, root, observable, result):
+        result.details = self.execute_cool_analysis(observable)
+
+manger = AnalysisModuleManager()
+manager.add_module(IPv4Lookup())
+manager.run()
+</code></pre>
+
+<h2 id="system-design-overview">System Design Overview<a class="headerlink" href="#system-design-overview" title="Permanent link">&para;</a></h2>
+<p>ACE is split up into three pieces: <em>core system</em>, <em>analysis modules</em>, and <em>alert management</em>. Each system operates on its own, independent of each other. Communication is performed through defined interfaces.</p>
+<h3 id="analysis-module-overview">Analysis Module Overview<a class="headerlink" href="#analysis-module-overview" title="Permanent link">&para;</a></h3>
+<p>An <strong>analysis module</strong> takes an observable as input, generates analysis results, and may produce zero or more observables as output. ACE can support any number of analysis modules in any programming language.</p>
+<h3 id="core-system-overview">Core System Overview<a class="headerlink" href="#core-system-overview" title="Permanent link">&para;</a></h3>
+<p>The <strong>core system</strong> is responsible for tracking analysis requests/results, storing file content, maintaining a result cache, and other required operations.</p>
+<p>The core system is itself composed of individual components that are simple to extend to provide additional functionality.</p>
+<h3 id="alert-management-overview">Alert Management Overview<a class="headerlink" href="#alert-management-overview" title="Permanent link">&para;</a></h3>
+<p>The <strong>alert management system</strong> manages alerts generated by a core system. It provides basic alert management tooling, as well as a graphical user interface for analysts to review and disposition the alerts.</p>
+<h2 id="core-system-details">Core System Details<a class="headerlink" href="#core-system-details" title="Permanent link">&para;</a></h2>
+<p>The core system is composed of multiple <em>abstract interfaces</em>, which can each be implemented in any manner required. These core system interfaces are listed below.</p>
+<ul>
+<li>alerting: provides an interface to send an alert to the alert management system</li>
+<li>analysis tracking: keeps track of root analysis data and analysis details</li>
+<li>caching: keeps a cache of recent analysis results</li>
+<li>configuration: provides a way to read and write configuration data</li>
+<li>events: provides a way to subscribe to events generated by the core system</li>
+<li>module tracking: keeps track of registered analysis modules</li>
+<li>request tracking: keeps track of analysis requests</li>
+<li>storage: provides a generic interface to read and write arbitrary binary data</li>
+<li>work queue: provides an interface for analysis modules to receive analysis requests</li>
+</ul>
+<p>Each interface is defined in <code>ace.system.*</code> Each abstract interface function is wrapped by an importable function that may provide additional functionality, error checking, or simplification for use.</p>
+<h3 id="core-system-initialization">Core System Initialization<a class="headerlink" href="#core-system-initialization" title="Permanent link">&para;</a></h3>
+<p>The first step is to provide a running core system that implements all the interfaces listed above.</p>
+<h3 id="analysis-module-registration">Analysis Module Registration<a class="headerlink" href="#analysis-module-registration" title="Permanent link">&para;</a></h3>
+<p>Once the core system is running, analysis modules must then register themselves to the system. This is accomplished by calling the <code>register_analysis_module_type</code> function.</p>
+<p>An analysis module type defines what requirements and restrictions are around certain kinds of observables that the analysis module will accept. The most simple and common requirement is providing a list of one or more observable types the module supports. The core system will only generate analysis requests for observables that match the given type(s). A more complex example might be an analysis module that depends on another analysis module, in which case, ACE would not submit an analysis request until the dependency is met.</p>
+<p>Analysis modules also register under specific versions. The core system keeps track of the registration data.</p>
+<p>Finally, each module asks the core system for the next analysis request to process by calling the <code>get_next_analysis_request</code> function, which blocks until work is available or the analysis reaches time out. </p>
+<h3 id="analysis-module-versioning">Analysis Module Versioning<a class="headerlink" href="#analysis-module-versioning" title="Permanent link">&para;</a></h3>
+<p>Analysis modules have two version fields: <code>version</code> and <code>extended_version</code>. The <strong>version</strong><strong> field simply contains a free-form string version of the module, such as <code>1.0.0</code>. The </strong>extended_version** contains zero or more optional version strings. These can be used to represent the version of data that is used by the module, such as detection signatures.</p>
+<p>Each call to <code>get_next_analysis_request</code> includes the version data of the current analysis module. If the version data does not match then the call is rejected. This gives the module as chance to update data, or exit to allow automation to update the module.</p>
+<h3 id="root-analysis-request-processing">Root Analysis Request Processing<a class="headerlink" href="#root-analysis-request-processing" title="Permanent link">&para;</a></h3>
+<p>New analysis requests are submitted to the core system by submitting a <strong>root analysis request</strong>. The analysis is tracked, and new <em>observable analysis requests</em> are generated for each observable that requires analysis by any registered analysis module. These requests are placed into the work queues assigned to each analysis module type. The requests are then picked up by the analysis modules through these queues.</p>
+<h3 id="analysis-result-processing">Analysis Result Processing<a class="headerlink" href="#analysis-result-processing" title="Permanent link">&para;</a></h3>
+<p>Analysis modules post the results of the analysis by submitting an <strong>observable analysis result</strong>, which includes both the original request, as well as the results of the analysis.</p>
+<p>The <em>difference</em> between the original request and the generated analysis is computed. Then the difference is applied to the tracked analysis objects.</p>
+<p>Any additional observations are analyzed as before, generating new observable analysis requests. This process continues until all analysis modules have completed analysis for all observables they accept.</p>
+<h3 id="alerting">Alerting<a class="headerlink" href="#alerting" title="Permanent link">&para;</a></h3>
+<p>Any root analysis that has one or more detection points is submitted to the alert management system. This can occur multiple times for the same root analysis.</p>
+<h3 id="analysis-result-cache">Analysis Result Cache<a class="headerlink" href="#analysis-result-cache" title="Permanent link">&para;</a></h3>
+<p>The result of the analysis of an observation can be <em>cached</em> if an analysis module is registered with a time-to-live value set for the cache. If the module types has this value, then it looks up results in the cache <em>before</em> making any analysis requests. This prevents duplicate analysis work in the cases where the results can be cached.</p>
+<h3 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h3>
+<p>ACE provides a very generic way to store any binary content. Data is stored as binary and referenced by sha256 hash. All data is associated to a root analysis. Any data that is no longer referenced automatically expires after some configurable time.</p>
+<h3 id="work-queues">Work Queues<a class="headerlink" href="#work-queues" title="Permanent link">&para;</a></h3>
+<p>When a new analysis module type is registered, a new <strong>work queue</strong> is created for that type. When the core system generates analysis requests for that type, those requests are sent to the work queue. The external analysis module instances then acquire these analysis requests through the work queue.</p>
+<p>A single analysis request cannot be acquired by multiple analysis module instances. The queues are FIFO.</p>
+<h2 id="workflow-example">Workflow Example<a class="headerlink" href="#workflow-example" title="Permanent link">&para;</a></h2>
+<p>This walks you through a really simple example of pretending to analyze an observable of type "test." Note that we are showing pseudo code for different components of ACE.</p>
+<pre class="codehilite"><code class="language-python"># assume this initializes a core system
+initialize_system()
+
+# 
+# assume the role of analysis module first
+# ----------------------------------------
+
+# register a basic analysis module
+# in this case we register an analysis module of type &quot;test&quot; which accepts observables of type &quot;test&quot;
+amt = AnalysisModuleType(&quot;test&quot;, &quot;this is a test analysis module&quot;, ['test'])
+register_analysis_module_type(amt)
+
+# 
+# assume the role of something that collects stuff to analyze
+# -----------------------------------------------------------
+
+# create a new root analysis as our analysis &quot;container&quot;
+root = RootAnalysis()
+# add a new observable with type &quot;type&quot; and value &quot;test&quot;
+observable = root.add_observable(&quot;test&quot;, &quot;test&quot;)
+# submit the root for analysis to the core system
+process_analysis_request(root.create_analysis_request())
+
+# at this point the core system has taken the request and generated
+# a new observable analysis request which is placed in the work queue for analysis module type &quot;test&quot;
+
+#
+# assume the role of the analysis module
+# --------------------------------------
+
+# first we create an identity
+# this is just some unique name that identifies the *instance* of the executing analysis module
+owner_uuid = &quot;test host localhost pid 12343 tid 12343353&quot;
+
+# receive the next work item
+# the format is get_next_analysis_request(who_you_are, which_analysis_module_type, how_long_to_wait)
+request = get_next_analysis_request(owner_uuid, amt, 0)
+
+# pretend to analyze it by generating details
+analysis_details = {&quot;test&quot;: &quot;result&quot;}
+request.result = request.create_result()
+request.result.observable.add_analysis(type=amt, details=analysis_details)
+
+# submit the result of the analysis to the core system
+process_analysis_request(request)
+
+#
+# at this point the analysis is complete because we did not add an additional observables
+#
+</code></pre>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../design/tags/" title="Tags" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Tags
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="caching/" title="Caching" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Caching
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.df00da5d.js"></script>
+      
+      <script>app.initialize({version:"1.1.2",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
